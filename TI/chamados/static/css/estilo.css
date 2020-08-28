@@ -20,3 +20,6 @@ form{
     padding: .375rem .75rem;
     border-radius: .25rem;
 }
+.verde:active{
+    color: white;
+}
