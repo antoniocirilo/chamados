@@ -1,3 +1,31 @@
-p{
-	border: 1px solid blue;
+.login h1{
+    width: 75%;
+    margin-left: 15%;
+    text-align: center;
+}
+form{
+	width: 75%;
+	margin-left: 15%;
+}
+
+.login{
+	margin-top: 25px;
+}
+.verde{
+	background-color: #7FFF00;
+	display: inline-block;
+    font-weight: 400;
+    color: #000;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s
+}
+
+button:hover{
+	color: #fff;
+	transition: 1s;
 }
