@@ -19,4 +19,5 @@ from chamados.views import login
 
 urlpatterns = [
     path('login/', login, name="login"),
+    path('',login ),
 ]
