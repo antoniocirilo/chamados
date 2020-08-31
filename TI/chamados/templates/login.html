@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Login - USINA</title>
+
+<!-- IMPORTING STYLES FOR LOGIN -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+{% endblock %}
+
+{% block conteudo %}
+<div id="login">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-7">
+				<div class="content">
+					<div class="logotipo"> 
+						<img src="{% static 'imagens/logo.png' %}" class="img-fluid" alt="Responsive image">
+					</div>
+					<form class="loginForm">
+						<div class="form-group">
+							<input placeholder="Usuário" type="text" class="form-control" id="user" aria-describedby="UserHELP">
+						</div>
+						<div class="form-group">
+							<input placeholder="Senha" type="password" class="form-control" id="password">
+						</div>
+						<div class="loginForm__btnSubmit">
+							<button type="submit" class="loginForm__btnSubmit--button">Entrar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
