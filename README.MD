@@ -64,3 +64,4 @@ Esse repositório está licenciado pela **MIT LICENSE**. Para mais informações
 [HTML]: https://www.w3schools.com/html/
 
 [CSS]: https://www.w3schools.com/w3css/defaulT.asp
+[Python]: https://www.python.org/
