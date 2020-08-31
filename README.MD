@@ -11,7 +11,7 @@ O projeto tem como propósito melhorar a organização e agilizar os chamados de
 ## **:computer: TECNOLOGIAS**
 
 
-#### **Website** ([React][react] + [TypeScript][typescript])
+#### **Website** ([Django][Django] + [Python][Python])
 
   - **[Django][Django]**
   - **[HTML][HTML]**
