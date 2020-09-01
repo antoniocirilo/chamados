@@ -1,0 +1,87 @@
+/* Alterando login */
+
+div#register {
+  background:  #eaeded;
+
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+div#register .content{
+  background: #FFF;
+
+  padding: 30px 40px;
+  border-radius: .5rem;
+  box-shadow: 0 5px 20px  #bdc3c7;
+
+  animation-name: fadeIN;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-duration: .5s;
+}
+
+div#register .logotipo{
+  display: flex;
+  justify-content: center;
+
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.6em;
+  margin-bottom: 30px;
+}
+
+div#register .logotipo img{
+  width: 250px;
+  height: 100%;
+}
+
+div#register .registerForm input{
+  text-align: center;
+  font-size: 1.2em;
+  height: 50px;
+}
+
+div#register login{
+margin-top: 25px;
+}
+
+div#register .registerForm__btnSubmit{
+  display: flex;
+  justify-content: center;
+}
+
+div#register .registerForm__btnSubmit--button{
+background-color: #7FFF00;
+display: inline-block;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #FFF;
+  text-align: center;
+  border: 2px solid transparent;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  width: 170px;
+  transition: .2s;
+}
+
+div#register .registerForm__btnSubmit--button:hover{
+  background: rgb(81, 255, 0);
+}
+
+div#register .registerForm__btnSubmit--button:active{
+  color: white;
+}
+
+
+/* Efeito fadeIN */
+@keyframes fadeIN{
+  from{
+      opacity: 0;
+  }
+  to{
+      opacity: 1;
+  }
+}

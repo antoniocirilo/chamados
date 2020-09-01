@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+<title>Cadastro - USINA</title>
+
+<!-- IMPORTING STYLES FOR LOGIN -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}" />
+{% endblock %}
+
+{% block conteudo %}
+
+<div id="register">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-7">
+				<div class="content">
+					<div class="logotipo"> 
+						<img src="{% static 'imagens/logo.png' %}" class="img-fluid" alt="Responsive image">
+					</div>
+					<form  method="post" class="registerForm">
+						<div class="form-group">
+							<!-- {% render_field form.username class="form-control" placeholder="Usuário" %}  -->
+							
+							<input placeholder="Usuário" type="text" class="form-control" id="user" aria-describedby="UserHELP">
+						</div>
+						<div class="form-group">
+							<!-- {% render_field form.password class="form-control" placeholder="Senha" %} -->
+							<input placeholder="Senha" type="password" class="form-control" id="password">
+            </div>
+            <div class="form-group">
+							<!-- {% render_field form.password class="form-control" placeholder="Senha" %} -->
+							<input placeholder="Repetir Senha" type="password" class="form-control" id="password">
+						</div>
+						<div class="registerForm__btnSubmit">
+							<button type="submit" class="registerForm__btnSubmit--button">Cadastrar</button>
+            </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
