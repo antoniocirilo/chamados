@@ -29,14 +29,29 @@ Primeiro, você precisa ter o <kbd>[Python](https://www.python.org/downloads/)</
 
 Se você estiver utilizando o **Linux**, você pode optar por instalar o **Python** através do site oficial da linguagem <kbd>[Python](https://www.python.org/downloads/)</kbd>.
 
-Após ter o **Python** instalado, instale as dependências do **Django** em uma venv, utilizando os comandos:
+Após ter o **Python** instalado, crie um ambiente virtual(venv) e o ative, utilizando os comandos:
+
+Criando o ambiente virtual(Windows/Linux):
+```sh
+$ python3 -m venv venv
+```
+Ativando a venv no linux:
+```sh
+$ source venv/bin/activate
+```
+
+Ativando a venv no Windows:
+```sh
+$ venv\Scripts\activate.bat
+```
 
 ```sh
 
 Instale as dependências contidas nos arquivos `requirements.txt` que se encontram na raíz do repositório (para o gerenciamento de commits). Para instalar as dependências, basta abrir o terminal no diretório e digitar o comando:
+```
 
 ```sh
-$ pip install requirements.txt
+$ pip install -r requirements.txt
 
 ```
 
