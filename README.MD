@@ -34,6 +34,7 @@ Após ter o **Python** instalado, instale as dependências do **Django** em uma 
 ```sh
 
 Instale as dependências contidas nos arquivos `requirements.txt` que se encontram na raíz do repositório (para o gerenciamento de commits). Para instalar as dependências, basta abrir o terminal no diretório e digitar o comando:
+```
 
 ```sh
 $ pip install requirements.txt
