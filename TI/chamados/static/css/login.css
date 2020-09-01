@@ -71,7 +71,7 @@ div#login .loginForm__btnSubmit--button:hover{
     background: rgb(81, 255, 0);
 }
 
-div#login .loginForm__btn-submit--button:active{
+div#login .loginForm__btnSubmit--button:active{
     color: white;
 }
 
