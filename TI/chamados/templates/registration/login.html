@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block conteudo %}
+<!--
 <div id="login">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -32,5 +33,14 @@
 			</div>
 		</div>
 	</div>
+</div> -->
+<div class="container-fluid">
+	<h1>Formulário de login</h1>
+	<form method="post">
+		{% csrf_token %}
+		<p>{{ form.username.label_tag }} {{ form.username }}</p>
+		<p>{{ form.password.label_tag }} {{ form.password }}</p>
+		<button type="submit">login</button>
+	</form>
 </div>
 {% endblock %}

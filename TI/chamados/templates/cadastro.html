@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastro</title>
+</head>
+<body>
+	<form method="post">
+		{% csrf_token %}
+		<p>Usuário: {{ form.username }}</p>
+		<p>Senha: {{ form.password1 }}</p>
+		<p>Repetir Senha: {{ form.password2 }}</p>
+		<button type="submit">Cadastrar</button>
+	</form>
+</body>
+</html>

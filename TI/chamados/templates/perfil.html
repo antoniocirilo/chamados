@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Página de perfil</h1>
+<p><a href="{% url 'logout' %}">Sair</a></p>
+<p>Ola, {{ user.username}}</p>
+<p><a href="{% url 'dados' user.id %}">editar dados</a></p>
+</body>
+</html>
