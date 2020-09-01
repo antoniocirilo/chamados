@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}
 <title>Login - USINA</title>
@@ -9,7 +10,7 @@
 {% endblock %}
 
 {% block conteudo %}
-<!--
+
 <div id="login">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -18,12 +19,19 @@
 					<div class="logotipo"> 
 						<img src="{% static 'imagens/logo.png' %}" class="img-fluid" alt="Responsive image">
 					</div>
-					<form class="loginForm">
+					<form  method="post" class="loginForm">
+						{% csrf_token %}
 						<div class="form-group">
+							{% render_field form.username class="form-control" placeholder="Usuário" %} 
+							<!--
 							<input placeholder="Usuário" type="text" class="form-control" id="user" aria-describedby="UserHELP">
+							}-->
 						</div>
 						<div class="form-group">
+							{% render_field form.password class="form-control" placeholder="Senha" %}
+							<!--
 							<input placeholder="Senha" type="password" class="form-control" id="password">
+						-->
 						</div>
 						<div class="loginForm__btnSubmit">
 							<button type="submit" class="loginForm__btnSubmit--button">Entrar</button>
@@ -33,14 +41,5 @@
 			</div>
 		</div>
 	</div>
-</div> -->
-<div class="container-fluid">
-	<h1>Formulário de login</h1>
-	<form method="post">
-		{% csrf_token %}
-		<p>{{ form.username.label_tag }} {{ form.username }}</p>
-		<p>{{ form.password.label_tag }} {{ form.password }}</p>
-		<button type="submit">login</button>
-	</form>
 </div>
 {% endblock %}
