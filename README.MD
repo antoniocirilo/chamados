@@ -29,8 +29,9 @@ Primeiro, você precisa ter o <kbd>[Python](https://www.python.org/downloads/)</
 
 Se você estiver utilizando o **Linux**, você pode optar por instalar o **Python** através do site oficial da linguagem <kbd>[Python](https://www.python.org/downloads/)</kbd>.
 
-Após ter o **Python** instalado, crie um ambiente virtual (venv) e o ative, utilizando os comandos:
-Criando a venv (Windows/Linux):
+Após ter o **Python** instalado, crie um ambiente virtual(venv) e o ative, utilizando os comandos:
+
+Criando o ambiente virtual(Windows/Linux):
 ```sh
 $ python3 -m venv venv
 ```
