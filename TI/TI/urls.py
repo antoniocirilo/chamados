@@ -19,6 +19,8 @@ from chamados.views import login, perfil, registro, dados
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    
     #path('login/', login, name="login"),
     path('',login ),
     path('perfil/', perfil, name="perfil"),
