@@ -32,4 +32,4 @@ def dados(request,id):
 	contexto = {
 		'form': form
 	}
-	return render(request, 'cadastro.html', contexto)
+	return render(request, 'register.html', contexto)
