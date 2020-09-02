@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    #'allauth',
+    #'allauth.account',
+    #'allauth.socialaccount',
     'widget_tweaks',
     'chamados',
 ]
@@ -116,8 +120,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+# Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
 
@@ -126,3 +130,28 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = 'perfil'
 
 LOGOUT_REDIRECT_URL = 'login'
+
+#Autenticação
+AUTH_USER_MODEL = 'chamados.CustomUser'
+
+#
+'''
+EMAIL_BACKEND = 'django.chamados.mail.backends.console.Email_Backend'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backend.AuthenticationBackend',
+)
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_LOGIN_ATTEMPS_TIMEOUT = 60 * 20
+
+ACCOUNT_FORMS ={
+    'signup': 'core.forms.CustomUserCreationForm'
+}
+'''

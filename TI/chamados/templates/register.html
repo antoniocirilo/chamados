@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block conteudo %}
-
 <div id="register">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -20,28 +19,28 @@
 						<img src="{% static 'imagens/logo.png' %}" class="img-fluid" alt="Responsive image">
 					</div>
 					<form  method="post" class="registerForm">
+						{% csrf_token %}
 						<div class="form-group">
-							<!-- {% render_field form.username class="form-control" placeholder="Usuário" %}  -->
-							
-							<input placeholder="Usuário" type="text" class="form-control" id="user" aria-describedby="UserHELP">
+							{% render_field form.username class="form-control" placeholder="Usuário" %} 
+							 <!-- <input placeholder="Usuário" type="text" class="form-control" id="user" aria-describedby="UserHELP"> -->
             </div>
             <div class="form-group">
-							<!-- {% render_field form.username class="form-control" placeholder="Email" %}  -->
+							{% render_field form.email class="form-control" placeholder="Email" %}  
 							
-							<input placeholder="Email" type="text" class="form-control" id="user" aria-describedby="UserHELP">
+							<!-- <input placeholder="Email" type="text" class="form-control" id="user" aria-describedby="UserHELP"> -->
             </div>
             <div class="form-group">
-							<!-- {% render_field form.username class="form-control" placeholder="Matrícula" %}  -->
+							{% render_field form.matricula class="form-control" placeholder="Matrícula" %}  
 							
-							<input placeholder="Matrícula" type="text" class="form-control" id="user" aria-describedby="UserHELP">
+							<!-- <input placeholder="Matrícula" type="text" class="form-control" id="user" aria-describedby="UserHELP"> -->
 						</div>
 						<div class="form-group">
-							<!-- {% render_field form.password class="form-control" placeholder="Senha" %} -->
-							<input placeholder="Senha" type="password" class="form-control" id="password">
+							 {% render_field form.password1 class="form-control" placeholder="Senha" %} 
+							<!-- <input placeholder="Senha" type="password" class="form-control" id="password"> -->
             </div>
             <div class="form-group">
-							<!-- {% render_field form.password class="form-control" placeholder="Confirmar senha" %} -->
-							<input placeholder="Confirmar senha" type="password" class="form-control" id="password">
+							 {% render_field form.password2 class="form-control" placeholder="Confirmar senha" %} 
+							<!-- <input placeholder="Confirmar senha" type="password" class="form-control" id="password"> -->
 						</div>
 						<div class="registerForm__btnSubmit">
 							<button type="submit" class="registerForm__btnSubmit--button">Cadastrar</button>
