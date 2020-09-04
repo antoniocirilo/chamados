@@ -21,10 +21,10 @@
             </li>
             <ul class="menu__lat--option">
               <li>
-                <i class="fas fa-user-circle"></i> Jeffesson Gomes
+                <i class="fas fa-user-circle"></i> {{ user.username}}
               </li>
               <li class="menu__lat--exit">
-                <a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Sair</a>
               </li>
             </ul>
           </nav>
@@ -46,7 +46,7 @@
               <a href="#"><i class="fas fa-plus-circle"></i> Novo chamado</a>
               </li>
               <li>
-                <a href="#"><i class="fas fa-user-edit"></i> Editar perfil</a>
+                <a href="{% url 'dados' user.id %}"><i class="fas fa-user-edit"></i> Editar perfil</a>
               </li>
             </nav>
           </div>
