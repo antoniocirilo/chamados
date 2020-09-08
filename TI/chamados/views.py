@@ -24,12 +24,15 @@ def registro(request):
 
 @login_required
 def dados(request,id):
-	user = CustomUser.objects.get(pk=id)
-	form = CustomUserCreationForm(request.POST or None, instance=user)
-	if form.is_valid():
-		form.save()
+	if request.user.id == id:
+		user = CustomUser.objects.get(pk=id)
+		form = CustomUserCreationForm(request.POST or None, instance=user)
+		if form.is_valid():
+			form.save()
+			return redirect('perfil')
+		contexto = {
+			'form': form
+		}
+	else:
 		return redirect('perfil')
-	contexto = {
-		'form': form
-	}
 	return render(request, 'register.html', contexto)
