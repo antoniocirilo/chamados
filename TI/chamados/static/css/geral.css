@@ -112,3 +112,23 @@ div.menu__lat .menu__lat--exit a{
   border-radius: 5px;
   font-weight: bold;
 }
+
+div.menu__mobile nav{
+  background: #17202a !important;
+}
+
+/* Mobile */
+@media screen and (max-width: 992px) {
+  .menu__lat{
+    display: none;
+  }
+  .menu__vert{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .menu__mobile{
+    display: none;
+  }
+}
