@@ -22,6 +22,18 @@ div#login .content{
     animation-duration: .5s;
 }
 
+div#login .content p{
+    padding: 25px 0 0 0;
+    margin: 0;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+div#login .content p a{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 div#login .logotipo{
     display: flex;
     justify-content: center;

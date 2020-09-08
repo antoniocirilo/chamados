@@ -22,6 +22,19 @@ div#register .content{
   animation-duration: .5s;
 }
 
+
+div#register .content p{
+  padding: 25px 0 0 0;
+  margin: 0;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+div#register .content p a{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 div#register .logotipo{
   display: flex;
   justify-content: center;
