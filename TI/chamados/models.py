@@ -9,3 +9,16 @@ class CustomUser (AbstractUser):
 
 	def __str__(self):
 		return self.matricula
+
+class ProblemaRelacionado(models.Model):
+	relacao = models.CharField('problema relacionado', max_length=50)
+
+	def __str__(self):
+		return self.relacao
+
+class Chamado(models.Model):
+	setor = models.CharField('Setor', max_length=50)
+	problema = models.TextField('problema')
+	situacao = models.IntegerField('situacao')
+	user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+	pr = models.ForeignKey(ProblemaRelacionado, on_delete=models.CASCADE)
