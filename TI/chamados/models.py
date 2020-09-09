@@ -19,6 +19,6 @@ class ProblemaRelacionado(models.Model):
 class Chamado(models.Model):
 	setor = models.CharField('Setor', max_length=50)
 	problema = models.TextField('problema')
-	situacao = models.IntegerField('situacao')
+	situacao = models.IntegerField('situacao', default=1)
 	user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 	pr = models.ForeignKey(ProblemaRelacionado, on_delete=models.CASCADE)

@@ -36,3 +36,7 @@ def dados(request,id):
 	else:
 		return redirect('perfil')
 	return render(request, 'register.html', contexto)
+
+@login_required
+def cadastro(request):
+	return render(request, 'registro.html')
