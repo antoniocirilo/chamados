@@ -13,23 +13,23 @@
 <div id="index">
   <div class="menu__mobile">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Usina Estivas</a>
+      <a class="navbar-brand" href="#">Usina Estivas | {{ user.username}} </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item text-center active">
+           <li class="nav-item text-center active">
             <a class="nav-link" href="#">Meus chamados</a>
           </li>
           <li class="nav-item text-center">
             <a class="nav-link" href="#">Novo chamado</a>
           </li>
           <li class="nav-item text-center">
-            <a class="nav-link" href="#">Editar perfil</a>
+            <a class="nav-link" href="{% url 'dados' user.id %}">Editar perfil</a>
           </li>
           <li class="nav-item text-center bg-danger">
-            <a class="nav-link text-white" href="#">Sair</a>
+            <a class="nav-link text-white" href="{% url 'logout' %}">Sair</a>
           </li>
         </ul>
       </div>
@@ -45,7 +45,7 @@
             </li>
             <ul class="menu__lat--option">
               <li>
-                <i class="fas fa-user-circle"></i> {{ user.username}}
+                <i class="fas fa-user-circle"></i>  {{ user.username}}
               </li>
               <li class="menu__lat--exit">
                 <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Sair</a>
@@ -78,7 +78,6 @@
       </div>
       <div class="col contentDash">
         <div class="contentDash">
-          a
           <br>
           <br>
           <br>
