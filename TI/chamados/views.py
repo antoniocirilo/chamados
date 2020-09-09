@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, ChamadoForm
 from .models import CustomUser
 
 # Create your views here.
@@ -39,4 +39,11 @@ def dados(request,id):
 
 @login_required
 def cadastro(request):
-	return render(request, 'registro.html')
+	form = ChamadoForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+		return redirect('perfil')
+	contexto = {
+		'form': form
+	}
+	return render(request, 'registro.html', contexto)
