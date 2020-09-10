@@ -23,7 +23,7 @@ urlpatterns = [
     
     #path('login/', login, name="login"),
     path('',login ),
-    path('perfil', perfil, name="perfil"),
+    path('perfil/', perfil, name="perfil"),
     path('perfil/cadastro/', cadastro, name="cadastro"),
     path('perfil/chamados/', lista_chamados, name="lista_chamados"),
 

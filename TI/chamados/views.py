@@ -52,7 +52,7 @@ def cadastro(request):
 
 @login_required
 def lista_chamados(request):
-	chamados = Chamado.objects.all()
+	chamados = Chamado.objects.filter(user=request.user)
 	contexto = {
 	'lista_chamado': chamados
 	}
