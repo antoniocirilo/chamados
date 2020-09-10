@@ -25,8 +25,8 @@ urlpatterns = [
     path('',login ),
     path('perfil/', perfil, name="perfil"),
     path('perfil/cadastro/', cadastro, name="cadastro"),
-    path('perfil/cadastro/editar/<int:id>', editar, name="editar"),
-    path('perfil/cadastro/apagar/<int:id>', apagar, name="apagar"),
+    path('perfil/cadastro/editar/<int:id>/', editar, name="editar"),
+    path('perfil/cadastro/apagar/<int:id>/', apagar, name="apagar"),
     path('perfil/chamados/', lista_chamados, name="lista_chamados"),
 
     #registro
