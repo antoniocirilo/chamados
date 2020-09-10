@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+<title>MEUS CHAMADOS - USINA</title>
+
+<!-- IMPORTING STYLES FOR LOGIN -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/geral.css' %}" />
+{% endblock %}
+
+{% block conteudo %}
+<div class="row">
+	<div class="col-12">
+		<h1>Todas as reservas</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12">
+		{% for chamado in lista_chamado %}
+<p>{{chamado.setor}} || {{chamado.relacao}} || {{chamado.problema}} || {{chamado.user}} || {{chamado.user.matricula}} {% if chamado.situacao == 1 %} || Não resolvido {% else %} ||resolvido {% endif %}</p>
+{% empty %}
+<p>Nenhum chamado cadastrado</p>
+{% endfor %}
+	</div>
+</div>
+{% endblock %}

@@ -8,7 +8,7 @@ class CustomUser (AbstractUser):
 	matricula = models.CharField('matricula', max_length=11)
 
 	def __str__(self):
-		return self.matricula
+		return self.username
 
 class ProblemaRelacionado(models.Model):
 	relacao = models.CharField('problema relacionado', max_length=50)
@@ -20,5 +20,5 @@ class Chamado(models.Model):
 	setor = models.CharField('Setor', max_length=50)
 	problema = models.TextField('problema')
 	situacao = models.IntegerField('situacao', default=1)
-	#user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+	user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 	relacao = models.ForeignKey(ProblemaRelacionado, on_delete=models.CASCADE)
