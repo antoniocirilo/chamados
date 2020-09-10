@@ -38,6 +38,14 @@ def dados(request,id):
 	return render(request, 'register.html', contexto)
 
 @login_required
+def lista_chamados(request):
+	chamados = Chamado.objects.filter(user=request.user)
+	contexto = {
+	'lista_chamado': chamados
+	}
+	return render(request, 'chamados.html', contexto)
+
+@login_required
 def cadastro(request):
 	form = ChamadoForm(request.POST or None)
 	if form.is_valid():
@@ -51,9 +59,21 @@ def cadastro(request):
 	return render(request, 'registro.html', contexto)
 
 @login_required
-def lista_chamados(request):
-	chamados = Chamado.objects.filter(user=request.user)
+def editar(request,id):
+	chamado = Chamado.objects.get(pk=id)
+	form = ChamadoForm(request.POST or None, instance=chamado)
+	if form.is_valid():
+		chamado = form.save(commit=False)
+		chamado.user = request.user
+		chamado.save()
+		return redirect('perfil')
 	contexto = {
-	'lista_chamado': chamados
+		'form': form
 	}
-	return render(request, 'chamados.html', contexto)
+	return render(request, 'registro.html', contexto)
+
+@login_required
+def apagar(request,id):
+	chamado = Chamado.objects.get(pk=id)
+	chamado.delete()
+	return redirect('lista_chamados')

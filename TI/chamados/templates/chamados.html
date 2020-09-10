@@ -18,7 +18,7 @@
 <div class="row">
 	<div class="col-12">
 		{% for chamado in lista_chamado %}
-<p>{{chamado.setor}} || {{chamado.relacao}} || {{chamado.problema}} || {{chamado.user}} || {{chamado.user.matricula}} {% if chamado.situacao == 1 %} || Não resolvido {% else %} ||resolvido {% endif %}</p>
+<p>{{chamado.setor}} || {{chamado.relacao}} || {{chamado.problema}} || {{chamado.user}} || {{chamado.user.matricula}} {% if chamado.situacao == 1 %} || Não resolvido {% else %} ||resolvido {% endif %}</p> <a href="{% url 'editar' chamado.id %}">Editar</a> | <a href="{% url 'apagar' chamado.id %}">Apagar</a>
 {% empty %}
 <p>Nenhum chamado cadastrado</p>
 {% endfor %}
