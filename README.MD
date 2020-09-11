@@ -64,6 +64,8 @@ Veja os arquivos **`requirements.txt`** do <kbd>[commitlint](./requirements.txt)
 
 - [Python](https://www.python.org/)
 - [HTML](https://www.w3schools.com/html/)
+- [CSS](https://www.w3schools.com/css/)
+- [Java Script](https://www.w3schools.com/js/)
 
 ## **:page_with_curl: LICENÇA**
 
