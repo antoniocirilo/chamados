@@ -77,3 +77,6 @@ def apagar(request,id):
 	chamado = Chamado.objects.get(pk=id)
 	chamado.delete()
 	return redirect('lista_chamados')
+
+def sidebar(request):
+	return render(request, 'sidebar.html')
