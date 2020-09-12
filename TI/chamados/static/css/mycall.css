@@ -1,0 +1,47 @@
+/* Alterando os meus chamados */
+div#mycall{
+  width: 100%;
+}
+
+div#mycall .table{
+  box-shadow: 0 0 20px   #abb2b9;
+}
+
+div#mycall .titleTable{
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+div#mycall .table th, td{
+  text-align: center;
+}
+
+div#mycall .table td span{
+  display: inline-block;
+
+  padding: 8px 20px;
+  border-radius: 5px;
+  color: #FFF;
+  font-weight: bold;
+  width: 150px;
+}
+
+div#mycall .table td span.completed{
+  background:  #2ecc71;
+}
+
+div#mycall .table td span.open{
+  background:   #e74c3c;
+}
+
+div#mycall .table td span.progressCall{
+  background:  #f4d03f;
+}
+
+div#mycall .table td a{
+  transition: .2s;
+}
+
+div#mycall .table td a:hover{
+  text-decoration: none;
+}

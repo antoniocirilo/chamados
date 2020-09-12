@@ -117,6 +117,13 @@ div.menu__mobile nav{
   background: #17202a !important;
 }
 
+/* Alterando o conteudo da pagina */
+#contentDash{
+  padding: 100px 0;
+
+  min-height: 100vh;
+}
+
 /* Mobile */
 @media screen and (max-width: 992px) {
   .menu__lat{
