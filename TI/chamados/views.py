@@ -6,11 +6,15 @@ from .models import CustomUser, Chamado
 
 # Create your views here.
 def login(request):
-	return render(request, 'login.html')
+	return render(request, 'auth/login.html')
 
 @login_required
 def perfil(request):
-	return render(request, 'index.html')
+	return render(request, 'dashboard/myProfile.html')
+
+@login_required
+def myCall(request):
+	return render(request, 'dashboard/myCall.html')
 
 def registro(request):
 	form = CustomUserCreationForm(request.POST or None)
@@ -20,7 +24,7 @@ def registro(request):
 	contexto = {
 		'form': form
 	}
-	return render(request, 'register.html', contexto)
+	return render(request, 'auth/register.html', contexto)
 
 @login_required
 def dados(request,id):
@@ -35,7 +39,7 @@ def dados(request,id):
 		}
 	else:
 		return redirect('perfil')
-	return render(request, 'register.html', contexto)
+	return render(request, 'auth/register.html', contexto)
 
 @login_required
 def lista_chamados(request):
@@ -43,7 +47,7 @@ def lista_chamados(request):
 	contexto = {
 	'lista_chamado': chamados
 	}
-	return render(request, 'chamados.html', contexto)
+	return render(request, '/chamados.html', contexto)
 
 @login_required
 def cadastro(request):
