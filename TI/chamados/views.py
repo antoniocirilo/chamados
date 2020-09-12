@@ -6,7 +6,7 @@ from .models import CustomUser, Chamado
 
 # Create your views here.
 def login(request):
-	return render(request, 'auth/login.html')
+	return render(request, 'registration/login.html')
 
 @login_required
 def perfil(request):
@@ -24,7 +24,7 @@ def registro(request):
 	contexto = {
 		'form': form
 	}
-	return render(request, 'auth/register.html', contexto)
+	return render(request, 'registration/register.html', contexto)
 
 @login_required
 def dados(request,id):
