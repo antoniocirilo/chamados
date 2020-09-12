@@ -1,1 +1,55 @@
 {% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Meus chamados - USINA</title>
+
+<!-- IMPORTING STYLES FOR LOGIN -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/mycall.css' %}" />
+{% endblock %}
+{% block content %}
+<div id="mycall">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th class="titleTable" colspan="4" scope="col">Meus chamados</th>
+            </tr>
+          </thead>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Setor</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Situação</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                
+                  <th scope="row">1</th>
+                  <td>TI</td>
+                  <td><a href="#">Problema na impressora</a></td>
+                  <td><span class="progressCall">Em andamento</span></td>
+              </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Financeiro</td>
+              <td><a href="#">Problema na Luz</a></td>
+              <td><span class="open">Em aberto</span></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Recepção</td>
+              <td><a href="#">Computador fora da tomada</a></td>
+              <td><span class="completed">Concluido</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
