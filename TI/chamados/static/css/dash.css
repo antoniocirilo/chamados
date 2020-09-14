@@ -58,6 +58,6 @@
 .sidebar-nav li:hover{
   background: rgba(0,0,0,0.5);
 }
-.diferente{
-  display: inline;
+.tecla:hover{
+  color: #ffffff;
 }
