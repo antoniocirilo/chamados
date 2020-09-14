@@ -26,11 +26,11 @@
 }
 /* Change the width of the sidebar to display it*/
 #wrapper.menuDisplayed #sidebar-wrapper{
-  width:250px;
+  width:190px;
 }
 
 #wrapper.menuDisplayed #page-content-wrapper{
-  padding-left:250px;
+  padding-left:190px;
 }
 
 /* Sidebar styling */
@@ -57,4 +57,7 @@
 
 .sidebar-nav li:hover{
   background: rgba(0,0,0,0.5);
+}
+.diferente{
+  display: inline;
 }

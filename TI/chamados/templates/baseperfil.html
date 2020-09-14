@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	{% block title %}
+	{% endblock %}
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/geral.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/dash.css' %}" />
+	<link rel="icon" type="text/css" href="{% static 'imagens/logo.png' %}">
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav">
+				<li><a href="#"> <i class="fas fa-list"></i> Meus Chamados</a></li>
+				<li><a href="{% url 'cadastro' %}"> <i class="fas fa-plus-square"></i> Novo Chamado</a></li>
+				<li><a href="{% url 'dados' user.id %}"> <i class="fas fa-user-cog"></i> Meus dados</a></li>
+				<li><a href="{% url 'logout' %}"> <i class="fas fa-sign-out-alt"></i> Sair</a></li>
+			</ul>
+		</div>
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<a href="#" class="btn" id="menu-toggle"><i class="fas fa-align-justify"></i></a> <span class="float-right"> Usina Estivas | {{user.apelido}}</span>
+						{% block conteudo %}
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$("#menu-toggle").click(function(e){
+				e.preventDefault();
+				$("#wrapper").toggleClass("menuDisplayed");
+			});
+		});
+	</script>
+</body>
+</html>

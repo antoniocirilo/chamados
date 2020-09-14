@@ -6,7 +6,7 @@ from .models import CustomUser, Chamado
 class CustomUserCreationForm(UserCreationForm):
 	class Meta:
 		model = CustomUser
-		fields = ('username', 'email', 'matricula')
+		fields = ('username', 'apelido', 'email', 'matricula')
 
 class ChamadoForm(ModelForm):
 	class Meta:

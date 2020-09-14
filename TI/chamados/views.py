@@ -10,7 +10,11 @@ def login(request):
 
 @login_required
 def perfil(request):
-	return render(request, 'dashboard/myProfile.html')
+	chamados = Chamado.objects.filter(user=request.user)
+	contexto = {
+	'lista_chamado': chamados
+	}
+	return render(request, 'chamados.html', contexto)
 
 @login_required
 def myCall(request):
@@ -24,7 +28,7 @@ def registro(request):
 	contexto = {
 		'form': form
 	}
-	return render(request, 'registration/register.html', contexto)
+	return render(request, 'register.html', contexto)
 
 @login_required
 def dados(request,id):
@@ -47,7 +51,7 @@ def lista_chamados(request):
 	contexto = {
 	'lista_chamado': chamados
 	}
-	return render(request, '/chamados.html', contexto)
+	return render(request, 'chamados.html', contexto)
 
 @login_required
 def cadastro(request):
@@ -81,6 +85,3 @@ def apagar(request,id):
 	chamado = Chamado.objects.get(pk=id)
 	chamado.delete()
 	return redirect('lista_chamados')
-
-def sidebar(request):
-	return render(request, 'sidebar.html')

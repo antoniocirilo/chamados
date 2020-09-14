@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 #  password = models.CharField(max_length=255)
 class CustomUser (AbstractUser):
 	matricula = models.CharField('matricula', max_length=11)
+	apelido = models.CharField('apelido', max_length=50)
 
 	def __str__(self):
 		return self.username

@@ -1,27 +1,39 @@
-{% extends "base.html" %}
+{% extends "baseperfil.html" %}
 {% load static %}
-{% load widget_tweaks %}
 
 {% block title %}
-<title>MEUS CHAMADOS - USINA</title>
-
-<!-- IMPORTING STYLES FOR LOGIN -->
-<link rel="stylesheet" type="text/css" href="{% static 'css/geral.css' %}" />
+	<title>Perfil</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mycall.css' %}" />
 {% endblock %}
 
 {% block conteudo %}
-<div class="row">
-	<div class="col-12">
-		<h1>Todas as reservas</h1>
-	</div>
-</div>
-<div class="row">
-	<div class="col-12">
-		{% for chamado in lista_chamado %}
-<p>{{chamado.setor}} || {{chamado.relacao}} || {{chamado.problema}} || {{chamado.user}} || {{chamado.user.matricula}} {% if chamado.situacao == 1 %} || Não resolvido {% else %} ||resolvido {% endif %}</p> <a href="{% url 'editar' chamado.id %}">Editar</a> | <a href="{% url 'apagar' chamado.id %}">Apagar</a>
-{% empty %}
+	<table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th class="titleTable" colspan="5" scope="col">Meus chamados</th>
+            </tr>
+          </thead>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Setor</th>
+              <th scope="col">Problema Relacionado</th>
+              <th scope="col">Problema</th>
+              <th scope="col">Situação</th>
+              <th scope="col">Administração</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                {% for chamado in lista_chamado %}
+                  <th scope="row">{{chamado.setor}}</th>
+                  <td class="text-left">{{chamado.relacao}}</td>
+                  <td class="text-left"><a href="#">{{chamado.problema}}</a></td>
+                  <td class="text-left"> <span class="progressCall">{% if chamado.situacao == 1 %} Não resolvido {% else %} resolvido {% endif %}</span></td>
+                  <td><a href="{% url 'editar' chamado.id %}">Editar</a> | <a href="{% url 'apagar' chamado.id %}">Apagar</a></td>
+              </tr>
+          </tbody>
+        </table>
+        {% empty %}
 <p>Nenhum chamado cadastrado</p>
 {% endfor %}
-	</div>
-</div>
 {% endblock %}
