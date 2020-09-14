@@ -10,7 +10,7 @@ def login(request):
 
 @login_required
 def perfil(request):
-	chamados = Chamado.objects.filter(user=request.user)
+	chamados = Chamado.objects.filter(user=request.user).order_by('-id')
 	contexto = {
 	'lista_chamado': chamados
 	}
