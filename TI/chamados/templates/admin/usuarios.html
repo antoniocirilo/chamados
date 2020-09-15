@@ -16,7 +16,6 @@
         <th scope="col">Usuario</th>
         <th scope="col">Apelido</th>
         <th scope="col">Matricula</th>
-        <th scope="col">Senha</th>
         <th scope="col">Administração</th>
       </tr>
     </thead>
@@ -27,8 +26,8 @@
         <th scope="row">{{usuario.username}}</th>
         <td >{{usuario.apelido}}</td>
         <td ><a href="#">{{usuario.matricula}}</a></td>
-        <td > {{usuario.senha}}</td>
-        <td> <a href="{% url 'dados' usuario.id %}">Editar</a> | <a href="#">Apagar</a></td>
+        <td> <a href="{% url 'editaruser' usuario.id %}">Editar</a> | {% if usuario.is_superuser == 0 %} <a href="{% url 'apagaruser' usuario.id %}">Apagar</a> {% else %} <a href="#" disabled> não Apagar</a> {% endif %}
+          </td>
       </tr>
       {% empty %}
     </tbody>

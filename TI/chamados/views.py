@@ -93,3 +93,20 @@ def usuarios(request):
 	'usuarios': user
 	}
 	return render(request, 'admin/usuarios.html', contexto)
+
+@login_required
+def editaruser(request, id):
+	user = CustomUser.objects.get(pk=id)
+	form = CustomUserCreationForm(request.POST or None, instance=user)
+	if form.is_valid():
+		form.save()
+		return redirect('usuarios')
+	contexto = {
+		'form': form
+	}
+	return render(request, 'registration/register.html', contexto)
+
+def apagaruser(request, id):
+	user = CustomUser.objects.get(pk=id)
+	user.delete()
+	return redirect('usuarios')

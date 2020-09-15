@@ -22,7 +22,9 @@
 				<li><a href="{% url 'perfil' %}" class="tecla" > <i class="fas fa-list"></i> Meus Chamados</a></li>
 				<li><a href="{% url 'cadastro' %}" class="tecla" > <i class="fas fa-plus-square"></i> Novo Chamado</a></li>
 				<li><a href="{% url 'dados' user.id %}" class="tecla" > <i class="fas fa-user-cog"></i> Meus dados</a></li>
-				<li><a href="{% url 'logout' %}" class="tecla" > <i class="fas fa-user-lock"></i> Administração de Usuários</a></li>
+				{% if user.is_superuser %}
+				<li><a href="{% url 'usuarios' %}" class="tecla" > <i class="fas fa-user-lock"></i> Administração de Usuários</a></li>
+				{% endif %}
 				<li><a href="{% url 'logout' %}" class="tecla" > <i class="fas fa-sign-out-alt"></i> Sair</a></li>
 			</ul>
 		</div>
