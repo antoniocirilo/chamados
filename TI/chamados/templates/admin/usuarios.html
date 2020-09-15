@@ -1,0 +1,42 @@
+{% extends "dashboard/baseperfil.html" %}
+{% load static %}
+
+{% block title %}
+<title>Administração de usuários</title>
+{% endblock %}
+
+{% block conteudo %}
+<div id="mycall">
+  <div class="row">
+    <div class="col-12">
+	<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Apelido</th>
+        <th scope="col">Matricula</th>
+        <th scope="col">Senha</th>
+        <th scope="col">Administração</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for usuario in usuarios %}
+        <th scope="row">{{usuario.id}}</th>
+        <th scope="row">{{usuario.username}}</th>
+        <td >{{usuario.apelido}}</td>
+        <td ><a href="#">{{usuario.matricula}}</a></td>
+        <td > {{usuario.senha}}</td>
+        <td> <a href="{% url 'dados' usuario.id %}">Editar</a> | <a href="#">Apagar</a></td>
+      </tr>
+      {% empty %}
+    </tbody>
+  </table>
+
+  <p>Nenhum Usuario cadastrado</p>
+  {% endfor %}
+</div>
+</div>
+</div>
+{% endblock %}

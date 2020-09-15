@@ -85,3 +85,11 @@ def apagar(request,id):
 	chamado = Chamado.objects.get(pk=id)
 	chamado.delete()
 	return redirect('lista_chamados')
+
+@login_required
+def usuarios(request):
+	user = CustomUser.objects.all()
+	contexto = {
+	'usuarios': user
+	}
+	return render(request, 'admin/usuarios.html', contexto)

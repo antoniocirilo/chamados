@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from chamados.views import login, perfil, registro, dados, cadastro, myCall, editar, apagar
+from chamados.views import login, perfil, registro, dados, cadastro, myCall, editar, apagar, usuarios
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -28,6 +28,9 @@ urlpatterns = [
     path('perfil/cadastro/editar/<int:id>/', editar, name="editar"),
     path('perfil/cadastro/apagar/<int:id>/', apagar, name="apagar"),
     path('perfil/chamados/', myCall, name="lista_chamados"),
+
+    #super_usuarios
+    path('perfil/usuarios/', usuarios, name="usuarios"),
 
     #registro
     path('registro/', registro, name='registro'),
