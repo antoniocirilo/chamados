@@ -3,10 +3,11 @@
 
 {% block title %}
 	<title>Perfil</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/mycall.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/mycall.css' %}" />
 {% endblock %}
 
 {% block conteudo %}
+<div id="mycall">
 	<table class="table">
           <thead class="thead-dark">
             <tr>
@@ -38,5 +39,6 @@
         </table>
         
 <p>Nenhum chamado cadastrado</p>
+</div>
 {% endfor %}
 {% endblock %}
