@@ -14,7 +14,7 @@ def perfil(request):
 	contexto = {
 	'lista_chamado': chamados
 	}
-	return render(request, 'chamados.html', contexto)
+	return render(request, 'dashboard/chamados.html', contexto)
 
 @login_required
 def myCall(request):
@@ -28,7 +28,7 @@ def registro(request):
 	contexto = {
 		'form': form
 	}
-	return render(request, 'register.html', contexto)
+	return render(request, 'registration/register.html', contexto)
 
 @login_required
 def dados(request,id):
@@ -43,7 +43,7 @@ def dados(request,id):
 		}
 	else:
 		return redirect('perfil')
-	return render(request, 'register.html', contexto)
+	return render(request, 'registration/register.html', contexto)
 
 @login_required
 def lista_chamados(request):
@@ -64,7 +64,7 @@ def cadastro(request):
 	contexto = {
 		'form': form
 	}
-	return render(request, 'registro.html', contexto)
+	return render(request, 'dashboard/registro.html', contexto)
 
 @login_required
 def editar(request,id):

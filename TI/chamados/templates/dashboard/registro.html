@@ -1,4 +1,4 @@
-{% extends "baseperfil.html" %}
+{% extends "dashboard/baseperfil.html" %}
 {% load static %}
 {% load widget_tweaks %}
 
@@ -17,8 +17,7 @@
 	</div>
 
 	<div class="form-group">
-		{% render_field form.relacao class="form-control dropdown" placeholder="Setor" %}
-
+		{% render_field form.relacao class="form-control dropdown"%}
 	</div>
 
 	<div class="form-group">
