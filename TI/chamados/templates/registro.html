@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "baseperfil.html" %}
 {% load static %}
 {% load widget_tweaks %}
 
@@ -6,13 +6,24 @@
 <title>CADASTRAR CHAMADO - USINA</title>
 
 <!-- IMPORTING STYLES FOR LOGIN -->
-<link rel="stylesheet" type="text/css" href="{% static 'css/geral.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}" />
 {% endblock %}
 
 {% block conteudo %}
-<form method="post">
+<form method="post" class="registerForm">
 	{% csrf_token %}
-	{{form}}
+	<div class="form-group">
+		{% render_field form.setor class="form-control" placeholder="Setor" %} 
+	</div>
+
+	<div class="form-group">
+		{% render_field form.relacao class="form-control dropdown" placeholder="Setor" %}
+
+	</div>
+
+	<div class="form-group">
+		{% render_field form.problema class="form-control" placeholder="Problema" %} 
+	</div>
 	<button type="submit">Salvar</button>
 </form>
 {% endblock %}

@@ -2,43 +2,43 @@
 {% load static %}
 
 {% block title %}
-	<title>Perfil</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/mycall.css' %}" />
+<title>Perfil</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/mycall.css' %}" />
 {% endblock %}
 
 {% block conteudo %}
 <div id="mycall">
 	<table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th class="titleTable" colspan="6" scope="col">Meus chamados</th>
-            </tr>
-          </thead>
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Setor</th>
-              <th scope="col">Problema Relacionado</th>
-              <th scope="col">Problema</th>
-              <th scope="col">Situação</th>
-              <th class="text-center" scope="col">Administração</th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                {% for chamado in lista_chamado %}
-                  <th scope="row">{{chamado.id}}</th>
-                  <th scope="row">{{chamado.setor}}</th>
-                  <td class="text-left">{{chamado.relacao}}</td>
-                  <td class="text-left"><a href="#">{{chamado.problema}}</a></td>
-                  <td class="text-left"> <span class="progressCall">{% if chamado.situacao == 1 %} Não resolvido {% else %} resolvido {% endif %}</span></td>
-                  <td><a href="{% url 'editar' chamado.id %}">Editar</a> | <a href="{% url 'apagar' chamado.id %}">Apagar</a></td>
-              </tr>
-              {% empty %}
-          </tbody>
-        </table>
-        
-<p>Nenhum chamado cadastrado</p>
+    <thead class="thead-dark">
+      <tr>
+        <th class="titleTable" colspan="6" scope="col">Meus chamados</th>
+      </tr>
+    </thead>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Setor</th>
+        <th scope="col">Problema Relacionado</th>
+        <th scope="col">Problema</th>
+        <th scope="col">Situação</th>
+        <th class="text-center" scope="col">Administração</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for chamado in lista_chamado %}
+        <th scope="row">{{chamado.id}}</th>
+        <th scope="row">{{chamado.setor}}</th>
+        <td class="text-left">{{chamado.relacao}}</td>
+        <td class="text-left"><a href="#">{{chamado.problema}}</a></td>
+        <td class="text-left"> {% if chamado.situacao == 1 %} <span class="open"> Não resolvido </span> {% elif chamado.situacao == 2 %}<span class="progressCall"> Em andamento </span> {% else %} <span class="completed">Resolvido </span>{% endif %}</td>
+        <td><a href="{% url 'editar' chamado.id %}">Editar</a> | <a href="{% url 'apagar' chamado.id %}">Apagar</a></td>
+      </tr>
+      {% empty %}
+    </tbody>
+  </table>
+
+  <p>Nenhum chamado cadastrado</p>
 </div>
 {% endfor %}
 {% endblock %}
