@@ -9,46 +9,54 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <input type="text" name="pesquisa" class="form-control" placeholder="pesquise aqui">
+      <input type="text" id="busca" name="pesquisa" class="form-control" placeholder="pesquise aqui">
       <br> <br>
-      <button type="submit" class="btn btn-outline-primary">Pesquisar</button>
-      <br> <br>
-      <br> <br> <br> <br>
     </div>
   </div>
 </div>
 <div id="mycall">
   <div class="row">
     <div class="col-12">
-	<table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Usuario</th>
-        <th scope="col">Apelido</th>
-        <th scope="col">Matricula</th>
-        <th scope="col">E-mail</th>
-        <th scope="col">Administração</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        {% for usuario in usuarios %}
-        <th scope="row">{{usuario.id}}</th>
-        <th scope="row">{{usuario.username}}</th>
-        <td >{{usuario.apelido}}</td>
-        <td ><a href="#">{{usuario.matricula}}</a></td>
-        <td scope="row">{{usuario.email}}</td>
-        <td> <a href="{% url 'editaruser' usuario.id %}"> <button type="button" class="btn btn-outline-success">Editar</button></a> {% if usuario.is_superuser == 0 %} <a href="{% url 'apagaruser' usuario.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a> {% else %} <a href="{% url 'apagaruser' usuario.id %}"> <button type="button" class="btn btn-outline-danger"disabled="">Apagar</button></a> {% endif %}
+     <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Apelido</th>
+          <th scope="col">Matricula</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Administração</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for usuario in usuarios %}
+          <th scope="row">{{usuario.id}}</th>
+          <td scope="row">{{usuario.username}}</td>
+          <td >{{usuario.apelido}}</td>
+          <td ><a href="#">{{usuario.matricula}}</a></td>
+          <td scope="row">{{usuario.email}}</td>
+          <td> <a href="{% url 'editaruser' usuario.id %}"> <button type="button" class="btn btn-outline-success">Editar</button></a> {% if usuario.is_superuser == 0 %} <a href="{% url 'apagaruser' usuario.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a> {% else %} <a href="{% url 'apagaruser' usuario.id %}"> <button type="button" class="btn btn-outline-danger"disabled="">Apagar</button></a> {% endif %}
           </td>
-      </tr>
-      {% empty %}
-    </tbody>
-  </table>
+        </tr>
+        {% empty %}
+      </tbody>
+    </table>
 
-  <p>Nenhum Usuario cadastrado</p>
-  {% endfor %}
-</div>
+    <p>Nenhum Usuario cadastrado</p>
+    {% endfor %}
+
+    <script type="text/javascript">
+      $('#busca').keyup(function() {
+        var nomeFiltro = $(this).val().toLowerCase();
+        $('table tbody').find('tr').each(function() {
+          var conteudoCelula = $(this).find('td').text();
+          var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+          $(this).css('display', corresponde ? '' : 'none');
+        });
+      });
+    </script>
+  </div>
 </div>
 </div>
 {% endblock %}
