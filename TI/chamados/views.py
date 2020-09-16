@@ -78,17 +78,17 @@ def editar(request,id):
 	contexto = {
 		'form': form
 	}
-	return render(request, 'registro.html', contexto)
+	return render(request, 'dashboard/registro.html', contexto)
 
 @login_required
 def apagar(request,id):
 	chamado = Chamado.objects.get(pk=id)
 	chamado.delete()
-	return redirect('lista_chamados')
+	return redirect('perfil')
 
 @login_required
 def usuarios(request):
-	user = CustomUser.objects.all()
+	user = CustomUser.objects.all().order_by('-id')
 	contexto = {
 	'usuarios': user
 	}
