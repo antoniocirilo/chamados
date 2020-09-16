@@ -6,6 +6,17 @@
 {% endblock %}
 
 {% block conteudo %}
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <input type="text" name="pesquisa" class="form-control" placeholder="pesquise aqui">
+      <br> <br>
+      <button type="submit" class="btn btn-outline-primary">Pesquisar</button>
+      <br> <br>
+      <br> <br> <br> <br>
+    </div>
+  </div>
+</div>
 <div id="mycall">
   <div class="row">
     <div class="col-12">
@@ -16,6 +27,7 @@
         <th scope="col">Usuario</th>
         <th scope="col">Apelido</th>
         <th scope="col">Matricula</th>
+        <th scope="col">E-mail</th>
         <th scope="col">Administração</th>
       </tr>
     </thead>
@@ -26,7 +38,8 @@
         <th scope="row">{{usuario.username}}</th>
         <td >{{usuario.apelido}}</td>
         <td ><a href="#">{{usuario.matricula}}</a></td>
-        <td> <a href="{% url 'editaruser' usuario.id %}">Editar</a> | {% if usuario.is_superuser == 0 %} <a href="{% url 'apagaruser' usuario.id %}">Apagar</a> {% else %} <a href="#" disabled> não Apagar</a> {% endif %}
+        <td scope="row">{{usuario.email}}</td>
+        <td> <a href="{% url 'editaruser' usuario.id %}"> <button type="button" class="btn btn-outline-success">Editar</button></a> {% if usuario.is_superuser == 0 %} <a href="{% url 'apagaruser' usuario.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a> {% else %} <a href="{% url 'apagaruser' usuario.id %}"> <button type="button" class="btn btn-outline-danger"disabled="">Apagar</button></a> {% endif %}
           </td>
       </tr>
       {% empty %}
