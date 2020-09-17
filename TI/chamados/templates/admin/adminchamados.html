@@ -13,7 +13,7 @@
 		</div>
 		{% for chamado in admin_chamado %}
 		{% if chamado.situacao == 1 %}
-		<div class="col-md-4 col-12">
+		<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
 			<div class="card" style="width: 18rem; margin: 5px;">
 				<div class="card-body">
 					<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
@@ -36,14 +36,14 @@
 		</div>
 		{% for chamado in admin_chamado %}
 		{% if chamado.situacao == 2 %}
-		<div class="col-md-4 col-12">
+		<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
 			<div class="card" style="width: 18rem; margin: 5px;">
 				<div class="card-body">
 					<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
 					<p class="card-text"> {{chamado.problema}} </p>
 					<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
 					</small>
-					<a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a>
+					<a href="#"><button class="btn btn-warning"> <i class="fas fa-plus-square"></i> comentário</button></a> <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a>
 				</div>
 			</div>
 		</div>
@@ -59,7 +59,7 @@
 		</div>
 		{% for chamado in admin_chamado %}
 		{% if chamado.situacao == 3 %}
-		<div class="col-md-4 col-12">
+		<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
 			<div class="card" style="width: 18rem; margin: 5px;">
 				<div class="card-body">
 					<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
