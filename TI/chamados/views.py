@@ -16,10 +16,6 @@ def perfil(request):
 	}
 	return render(request, 'dashboard/chamados.html', contexto)
 
-@login_required
-def myCall(request):
-	return render(request, 'dashboard/myCall.html')
-
 def registro(request):
 	form = CustomUserCreationForm(request.POST or None)
 	if form.is_valid():
@@ -85,6 +81,10 @@ def apagar(request,id):
 	chamado = Chamado.objects.get(pk=id)
 	chamado.delete()
 	return redirect('perfil')
+
+@login_required
+def adminchamados(request):
+	return render(request, 'admin/adminchamados.html')
 
 @login_required
 def usuarios(request):

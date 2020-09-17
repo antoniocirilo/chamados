@@ -34,7 +34,7 @@
         <td >{{chamado.relacao}}</td>
         <td ><a href="#">{{chamado.problema}}</a></td>
         <td > {% if chamado.situacao == 1 %} <span class="open"> Não resolvido </span> {% elif chamado.situacao == 2 %}<span class="progressCall"> Em andamento </span> {% else %} <span class="completed">Resolvido </span>{% endif %}</td>
-        <td><a href="{% url 'editar' chamado.id %}"> <button type="button" class="btn btn-outline-success">Editar</button> </a> <a href="{% url 'apagar' chamado.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a></td>
+        <td><a href="{% url 'editar' chamado.id %}"> <button type="button" class="btn btn-outline-primary">Editar</button> </a> <a href="{% url 'apagar' chamado.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a></td>
       </tr>
       {% empty %}
     </tbody>

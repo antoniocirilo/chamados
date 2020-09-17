@@ -36,7 +36,7 @@
           <td >{{usuario.apelido}}</td>
           <td ><a href="#">{{usuario.matricula}}</a></td>
           <td scope="row">{{usuario.email}}</td>
-          <td> <a href="{% url 'editaruser' usuario.id %}"> <button type="button" class="btn btn-outline-success">Editar</button></a> {% if usuario.is_superuser == 0 %} <a href="{% url 'apagaruser' usuario.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a> {% else %} <a href="{% url 'apagaruser' usuario.id %}"> <button type="button" class="btn btn-outline-danger"disabled="">Apagar</button></a> {% endif %}
+          <td> <a href="{% url 'editaruser' usuario.id %}"> <button type="button" class="btn btn-outline-primary">Editar</button></a> {% if usuario.is_superuser == 0 %} <a href="{% url 'apagaruser' usuario.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a> {% else %} <a href="{% url 'apagaruser' usuario.id %}"> <button type="button" class="btn btn-outline-danger"disabled="">Apagar</button></a> {% endif %}
           </td>
         </tr>
         {% empty %}
