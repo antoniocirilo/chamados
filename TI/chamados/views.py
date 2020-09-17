@@ -42,14 +42,6 @@ def dados(request,id):
 	return render(request, 'registration/register.html', contexto)
 
 @login_required
-def lista_chamados(request):
-	chamados = Chamado.objects.filter(user=request.user)
-	contexto = {
-	'lista_chamado': chamados
-	}
-	return render(request, 'chamados.html', contexto)
-
-@login_required
 def cadastro(request):
 	form = ChamadoForm(request.POST or None)
 	if form.is_valid():
@@ -84,7 +76,11 @@ def apagar(request,id):
 
 @login_required
 def adminchamados(request):
-	return render(request, 'admin/adminchamados.html')
+	chamado = Chamado.objects.all()
+	contexto = {
+	'admin_chamado': chamado
+	}
+	return render(request, 'admin/adminchamados.html', contexto)
 
 @login_required
 def usuarios(request):
