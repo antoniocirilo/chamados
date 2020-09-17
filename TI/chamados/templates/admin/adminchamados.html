@@ -7,15 +7,82 @@
 {% endblock %}
 
 {% block conteudo %}
-<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<h2>Não Resolvido</h2>
+		</div>
+		{% for chamado in admin_chamado %}
+		{% if chamado.situacao == 1 %}
+		<div class="col-md-4 col-12">
+			<div class="card" style="width: 18rem; margin: 5px;">
+				<div class="card-body">
+					<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
+					<p class="card-text"> {{chamado.problema}} </p>
+					<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
+					</small>
+					<a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% empty %}
+		<h1>Nada para resolver</h1>
+		{% endfor %}
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<h2>Em andamento</h2>
+		</div>
+		{% for chamado in admin_chamado %}
+		{% if chamado.situacao == 2 %}
+		<div class="col-md-4 col-12">
+			<div class="card" style="width: 18rem; margin: 5px;">
+				<div class="card-body">
+					<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
+					<p class="card-text"> {{chamado.problema}} </p>
+					<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
+					</small>
+					<a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% empty %}
+		<h1>Nada para resolver</h1>
+		{% endfor %}
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<h2>Resolvidos</h2>
+		</div>
+		{% for chamado in admin_chamado %}
+		{% if chamado.situacao == 3 %}
+		<div class="col-md-4 col-12">
+			<div class="card" style="width: 18rem; margin: 5px;">
+				<div class="card-body">
+					<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
+					<p class="card-text"> {{chamado.problema}} </p>
+					<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
+					</small>
+					<a href="disabled" class="btn btn-danger">Nada</a>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+		{% empty %}
+		<h1>Nada para resolver</h1>
+		{% endfor %}
+	</div>
+<!--
 	<div class="row">
 		<div class="col-12">
 			{% for chamado in admin_chamado %}
-			<h1>{{chamado.id}} || {{chamado.setor}} || {{chamado.user}} || {{chamado.user.matricula}} || {{chamado.relacao}} || {{chamado.problema}} || {% if chamado.situacao == 1 %} <span class="open"> Não resolvido </span> {% elif chamado.situacao == 2 %}<span class="progressCall"> Em andamento </span> {% else %} <span class="completed">Resolvido </span>{% endif %}</h1>
+			<h1>{{chamado.id}} || {{chamado.setor}} || {{chamado.user}} || {{chamado.user.matricula}} || {{chamado.user.apelido}} || {{chamado.relacao}} || {{chamado.problema}} || {% if chamado.situacao == 1 %} <span class="open"> Não resolvido </span> {% elif chamado.situacao == 2 %}<span class="progressCall"> Em andamento </span> {% else %} <span class="completed">Resolvido </span>{% endif %}</h1>
 			{% empty %}
 			<h1>Nada para resolver</h1>
 			{% endfor %}
 		</div>
-	</div>
-</div>
+	</div> -->
 {% endblock %}

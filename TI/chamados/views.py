@@ -76,11 +76,25 @@ def apagar(request,id):
 
 @login_required
 def adminchamados(request):
-	chamado = Chamado.objects.all()
+	chamado = Chamado.objects.all().order_by('-id')
 	contexto = {
 	'admin_chamado': chamado
 	}
 	return render(request, 'admin/adminchamados.html', contexto)
+
+@login_required
+def resolverchamado(request, id):
+	chamado = Chamado.objects.get(pk=id)
+	chamado.situacao = 2
+	chamado.save()
+	return redirect('adminchamados')
+
+@login_required
+def resolvidochamado(request, id):
+	chamado = Chamado.objects.get(pk=id)
+	chamado.situacao = 3
+	chamado.save()
+	return redirect('adminchamados')
 
 @login_required
 def usuarios(request):
