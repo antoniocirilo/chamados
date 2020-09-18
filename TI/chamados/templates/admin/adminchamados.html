@@ -9,6 +9,17 @@
 {% block conteudo %}
 <div class="row">
 	<div class="col-12">
+		<form method="get">
+			{{ form }}
+			<button class="btn btn-primary" type="submit">
+				Buscar
+			</button>
+		</form>
+	</div>
+</div>
+<!--
+<div class="row">
+	<div class="col-12">
 		<h2>Não Resolvido</h2>
 	</div>
 	{% for chamado in admin_chamado %}
@@ -81,14 +92,5 @@
 	<h1>Nada para resolver</h1>
 	{% endfor %}
 </div>
-<!--
-	<div class="row">
-		<div class="col-12">
-			{% for chamado in admin_chamado %}
-			<h1>{{chamado.id}} || {{chamado.setor}} || {{chamado.user}} || {{chamado.user.matricula}} || {{chamado.user.apelido}} || {{chamado.relacao}} || {{chamado.problema}} || {% if chamado.situacao == 1 %} <span class="open"> Não resolvido </span> {% elif chamado.situacao == 2 %}<span class="progressCall"> Em andamento </span> {% else %} <span class="completed">Resolvido </span>{% endif %}</h1>
-			{% empty %}
-			<h1>Nada para resolver</h1>
-			{% endfor %}
-		</div>
-	</div> -->
+-->
 	{% endblock %}
