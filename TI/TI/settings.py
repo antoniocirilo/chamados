@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #'allauth.account',
     #'allauth.socialaccount',
     'widget_tweaks',
+    'django_filters',
     'chamados',
 ]
 
