@@ -36,8 +36,8 @@
 	<div class="col-12">
 		<h2>Em andamento</h2>
 	</div>
-	{% if chamado.situacao == 2 %}
 	{% for chamado in admin_chamado %}
+	{% if chamado.situacao == 2 %}
 	<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
 		<div class="card" style="width: 18rem; margin: 5px;">
 			<div class="card-body">
@@ -51,13 +51,10 @@
 			</div>
 		</div>
 	</div>
+	{% endif %}
 	{% empty %}
 	<h1>Nada para resolver</h1>
 	{% endfor %}
-	{% else %}
-	<h1>Nada para resolver</h1>
-	{% endif %}
-	
 </div>
 
 <div class="row">
