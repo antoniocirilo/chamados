@@ -8,6 +8,9 @@ from .models import CustomUser, Chamado
 def login(request):
 	return render(request, 'login.html')
 
+def inicial(request):
+	return redirect('login')
+
 @login_required
 def perfil(request):
 	chamados = Chamado.objects.filter(user=request.user).order_by('-id')

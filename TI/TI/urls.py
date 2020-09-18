@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from chamados.views import login, perfil, registro, dados, cadastro, editar, apagar, adminchamados, resolverchamado, resolvidochamado, usuarios, editaruser, apagaruser
+from chamados.views import login, perfil, inicial, registro, dados, cadastro, editar, apagar, adminchamados, resolverchamado, resolvidochamado, usuarios, editaruser, apagaruser
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('perfil/', perfil, name="perfil"),
+    path('', inicial, name="inicial"),
 
     #manipulação de chamados
     path('perfil/cadastro/', cadastro, name="cadastro"),

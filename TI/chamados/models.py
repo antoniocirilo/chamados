@@ -23,3 +23,4 @@ class Chamado(models.Model):
 	situacao = models.IntegerField('situacao', default=1)
 	user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 	relacao = models.ForeignKey(ProblemaRelacionado, on_delete=models.CASCADE)
+	comentario = models.TextField('comentario', null=True)

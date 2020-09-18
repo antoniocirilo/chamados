@@ -7,74 +7,83 @@
 {% endblock %}
 
 {% block conteudo %}
-	<div class="row">
-		<div class="col-12">
-			<h2>Não Resolvido</h2>
-		</div>
-		{% for chamado in admin_chamado %}
-		{% if chamado.situacao == 1 %}
-		<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
-			<div class="card" style="width: 18rem; margin: 5px;">
-				<div class="card-body">
-					<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
-					<p class="card-text"> {{chamado.problema}} </p>
-					<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
-					</small>
-					<a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a>
-				</div>
+<div class="row">
+	<div class="col-12">
+		<h2>Não Resolvido</h2>
+	</div>
+	{% for chamado in admin_chamado %}
+	{% if chamado.situacao == 1 %}
+	<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+		<div class="card" style="width: 18rem; margin: 5px;">
+			<div class="card-body">
+				<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
+				<p class="card-text"> {{chamado.problema}} </p>
+								<hr/>
+				<p class="card-text"> {{chamado.comentario}} </p>
+				<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
+				</small>
+				<a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a>
 			</div>
 		</div>
-		{% endif %}
-		{% empty %}
-		<h1>Nada para resolver</h1>
-		{% endfor %}
 	</div>
+	{% endif %}
+	{% empty %}
+	<h1>Nada para resolver</h1>
+	{% endfor %}
+</div>
 
-	<div class="row">
-		<div class="col-12">
-			<h2>Em andamento</h2>
-		</div>
-		{% for chamado in admin_chamado %}
-		{% if chamado.situacao == 2 %}
-		<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
-			<div class="card" style="width: 18rem; margin: 5px;">
-				<div class="card-body">
-					<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
-					<p class="card-text"> {{chamado.problema}} </p>
-					<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
-					</small>
-					<a href="#"><button class="btn btn-warning"> <i class="fas fa-plus-square"></i> comentário</button></a> <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a>
-				</div>
+<div class="row">
+	<div class="col-12">
+		<h2>Em andamento</h2>
+	</div>
+	{% if chamado.situacao == 2 %}
+	{% for chamado in admin_chamado %}
+	<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+		<div class="card" style="width: 18rem; margin: 5px;">
+			<div class="card-body">
+				<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
+				<p class="card-text"> {{chamado.problema}} </p>
+				<hr/>
+				<p class="card-text"> {{chamado.comentario}} </p>
+				<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
+				</small>
+				<a href="#"><button class="btn btn-warning" data-toggle="collapse" data-target="#demo"> <i class="fas fa-plus-square"></i> comentário</button></a> <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a>
 			</div>
 		</div>
-		{% endif %}
-		{% empty %}
-		<h1>Nada para resolver</h1>
-		{% endfor %}
 	</div>
+	{% empty %}
+	<h1>Nada para resolver</h1>
+	{% endfor %}
+	{% else %}
+	<h1>Nada para resolver</h1>
+	{% endif %}
+	
+</div>
 
-	<div class="row">
-		<div class="col-12">
-			<h2>Resolvidos</h2>
-		</div>
-		{% for chamado in admin_chamado %}
-		{% if chamado.situacao == 3 %}
-		<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
-			<div class="card" style="width: 18rem; margin: 5px;">
-				<div class="card-body">
-					<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
-					<p class="card-text"> {{chamado.problema}} </p>
-					<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
-					</small>
-					<a href="disabled" class="btn btn-danger">Nada</a>
-				</div>
+<div class="row">
+	<div class="col-12">
+		<h2>Resolvidos</h2>
+	</div>
+	{% for chamado in admin_chamado %}
+	{% if chamado.situacao == 3 %}
+	<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+		<div class="card" style="width: 18rem; margin: 5px;">
+			<div class="card-body">
+				<h5 class="card-title">#{{chamado.id}} - {{chamado.setor}} - {{chamado.relacao}}</h5>
+				<p class="card-text"> {{chamado.problema}} </p>
+				<hr/>
+				<p class="card-text"> {{chamado.comentario}} </p>
+				<small class=" card-subtitle mb-2 text-muted float-right">aberto por {{chamado.user.apelido}} ({{chamado.user}}) - {{chamado.user.matricula}}
+				</small>
+				<a href="disabled" class="btn btn-danger">Nada</a>
 			</div>
 		</div>
-		{% endif %}
-		{% empty %}
-		<h1>Nada para resolver</h1>
-		{% endfor %}
 	</div>
+	{% endif %}
+	{% empty %}
+	<h1>Nada para resolver</h1>
+	{% endfor %}
+</div>
 <!--
 	<div class="row">
 		<div class="col-12">
@@ -85,4 +94,4 @@
 			{% endfor %}
 		</div>
 	</div> -->
-{% endblock %}
+	{% endblock %}

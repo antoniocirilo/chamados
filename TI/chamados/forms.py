@@ -12,3 +12,8 @@ class ChamadoForm(ModelForm):
 	class Meta:
 		model = Chamado
 		fields = ('setor', 'relacao', 'problema')
+
+class ComentarioForm(ModelForm):
+	class Meta:
+		model = Chamado
+		fields = ('setor', 'comentario')
