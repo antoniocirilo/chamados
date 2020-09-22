@@ -1,0 +1,28 @@
+{% extends "dashboard/baseperfil.html" %}
+
+{% block title %}
+<title>Teste- filtro</title>
+{% endblock%}
+
+{% block conteudo %}
+<h1 class="text-center"> teste - filtro</h1>
+
+<form method="get">
+	{{filtro.form}}
+	<button type="submit">pesquisar</button>
+</form>
+	<table border="1">
+		{% for chamado in filtro.qs %}
+		<tr>
+			<td>{{chamado.id}}</td>
+			<td>{{chamado.relacao}}</td>
+			<td>{{chamado.problema}}</td>
+			<td>{{chamado.user}}</td>
+			<td>{{chamado.situacao}}</td>
+		</tr>
+		{% empty %}
+		<tr>Nada cadastrado</tr>
+		{% endfor %}
+	</table>
+
+{% endblock%}

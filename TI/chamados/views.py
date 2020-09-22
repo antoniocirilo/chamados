@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, ChamadoForm
 from .models import CustomUser, Chamado
-from .filters import ChamadoFiltro
+from .filters import FiltroChamado
 
 # Create your views here.
 def login(request):
@@ -80,14 +80,12 @@ def apagar(request,id):
 
 @login_required
 def adminchamados(request):
-	chamado = Chamado.objects.all().order_by('-id')
-	chamados = Chamado.objects.all()
-	meufiltro = ChamadoFiltro(request.GET, queryset=chamados)
+	chamado = Chamado.objects.all()
+	meufiltro = FiltroChamado(request.GET, queryset=chamado)
 	contexto = {
-	'form': meufiltro,
-	'admin_chamado': chamado
+	'filtro': meufiltro
 	}
-	return render(request, 'admin/adminchamados.html', contexto)
+	return render(request, 'admin/teste-filtro.html', contexto)
 
 @login_required
 def resolverchamado(request, id):
