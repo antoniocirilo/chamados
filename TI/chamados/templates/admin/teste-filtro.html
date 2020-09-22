@@ -5,10 +5,12 @@
 {% endblock%}
 
 {% block conteudo %}
-<h1 class="text-center"> teste - filtro</h1>
-
 <form method="get">
-	{{filtro.form}}
+	<p>Id: {{filtro.form.id}}</p>
+	<p>Usuário: {{filtro.form.user}}</p>
+	<p>Relação: {{filtro.form.relacao}}</p>
+	<p>Situacao: {{filtro.form.situacao}}</p>
+	<p>Problema: {{filtro.form.problema}}</p>
 	<button type="submit">pesquisar</button>
 </form>
 	<table border="1">

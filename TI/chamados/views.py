@@ -80,7 +80,7 @@ def apagar(request,id):
 
 @login_required
 def adminchamados(request):
-	chamado = Chamado.objects.all()
+	chamado = Chamado.objects.all().order_by('-id')
 	meufiltro = FiltroChamado(request.GET, queryset=chamado)
 	contexto = {
 	'filtro': meufiltro
