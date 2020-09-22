@@ -1,0 +1,62 @@
+/* Editando Filtro */
+form{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  margin: 10px 0px;
+}
+
+form div{
+  margin: 10px;
+  padding: 0;
+}
+
+form input, select{
+  border-radius: 6px;
+  border: none;
+  outline: none;
+
+  padding: 10px 10px;
+  background: #f0f3f4;
+}
+
+form span {
+  margin: 0 10px 0 40px;
+}
+
+form .btnSubmit{
+  display: flex;
+  align-items: center;
+}
+
+form .btnSubmit .btnSubmit--btn{
+  outline: 0;
+  border: 0;
+
+  background:  #2ecc71;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #FFF;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+form .btnSubmit .btnSubmit--btn i{
+  font-size: 1.2em;
+}
+
+/* editando a tabela */
+
+table tr th, td{
+  text-align: center;
+}
+
+table .title-table{
+  font-size: 2em;
+}
+
+table .btn{
+  text-transform: uppercase;
+  padding: 5px 25px;
+}
