@@ -1,31 +1,52 @@
 {% extends "dashboard/baseperfil.html" %}
 
+{% load static %}
+
 {% block title %}
 <title>Teste- filtro</title>
+<link rel="stylesheet" href="{% static 'css/adminchamados.css' %}">
 {% endblock%}
 
 {% block conteudo %}
 <form method="get">
-	<p>Id: {{filtro.form.id}}</p>
-	<p>Usuário: {{filtro.form.user}}</p>
-	<p>Relação: {{filtro.form.relacao}}</p>
-	<p>Situacao: {{filtro.form.situacao}}</p>
-	<p>Problema: {{filtro.form.problema}}</p>
-	<button type="submit">pesquisar</button>
+	<div><span>Id:</span> {{filtro.form.id}}</div>
+	<div><span>Usuário:</span> {{filtro.form.user}}</div>
+	<div><span>Relação:</span> {{filtro.form.relacao}}</div>
+	<div><span>Situacao:</span> {{filtro.form.situacao}}</div>
+	<div><span>Problema:</span> {{filtro.form.problema}}</div>
+	<div class="btnSubmit">
+		<button class="btnSubmit--btn" type="submit"><i class="fas fa-search"></i> pesquisar</button>
+	</div>
 </form>
-	<table border="1">
+<div class="table-responsive">
+	<table class="table" border="1">
+		<thead class="thead-dark">
+			<tr>
+				<th class="title-table" colspan="6">Chamados</th>
+			</tr>
+			<tr>
+				<th>ID</th>
+				<th>Relação</th>
+				<th>Problema</th>
+				<th>Usuário</th>
+				<th>Situação</th>
+				<th>Ação</th>
+			</tr>
+		</thead>
 		{% for chamado in filtro.qs %}
-		<tr>
-			<td>{{chamado.id}}</td>
-			<td>{{chamado.relacao}}</td>
-			<td>{{chamado.problema}}</td>
-			<td>{{chamado.user}}</td>
-			<td>{{chamado.situacao}}</td>
-			<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a> {% endif %}</td>
-		</tr>
+		<tbody>
+			<tr>
+				<td>{{chamado.id}}</td>
+				<td>{{chamado.relacao}}</td>
+				<td>{{chamado.problema}}</td>
+				<td>{{chamado.user}}</td>
+				<td>{{chamado.situacao}}</td>
+				<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a> {% endif %}</td>
+			</tr>
+		</tbody>
 		{% empty %}
 		<tr>Nada cadastrado</tr>
 		{% endfor %}
 	</table>
-
+</div>
 {% endblock%}
