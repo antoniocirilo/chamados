@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, ChamadoForm
-from .models import CustomUser, Chamado
+from .models import CustomUser, Chamado, Situacao
 from .filters import FiltroChamado
 
 # Create your views here.
@@ -90,14 +90,14 @@ def adminchamados(request):
 @login_required
 def resolverchamado(request, id):
 	chamado = Chamado.objects.get(pk=id)
-	chamado.situacao = 2
+	chamado.situacao_id = 2
 	chamado.save()
 	return redirect('adminchamados')
 
 @login_required
 def resolvidochamado(request, id):
 	chamado = Chamado.objects.get(pk=id)
-	chamado.situacao = 3
+	chamado.situacao_id = 3
 	chamado.save()
 	return redirect('adminchamados')
 

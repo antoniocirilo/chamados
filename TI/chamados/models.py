@@ -19,6 +19,8 @@ class ProblemaRelacionado(models.Model):
 
 class Situacao(models.Model):
 	situ = models.CharField('situacao', max_length=100)
+	def __str__(self):
+		return self.situ
 
 class Chamado(models.Model):
 	setor = models.CharField('Setor', max_length=50)
@@ -26,5 +28,5 @@ class Chamado(models.Model):
 	#situacao = models.IntegerField('situacao', default=1)
 	user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 	relacao = models.ForeignKey(ProblemaRelacionado, on_delete=models.CASCADE)
-	situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE)
+	situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE, default=1)
 	comentario = models.TextField('comentario', null=True)

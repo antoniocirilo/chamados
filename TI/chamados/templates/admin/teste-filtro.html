@@ -21,6 +21,7 @@
 			<td>{{chamado.problema}}</td>
 			<td>{{chamado.user}}</td>
 			<td>{{chamado.situacao}}</td>
+			<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a> {% endif %}</td>
 		</tr>
 		{% empty %}
 		<tr>Nada cadastrado</tr>
