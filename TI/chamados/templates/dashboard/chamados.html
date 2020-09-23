@@ -4,6 +4,14 @@
 {% block title %}
 <title>Perfil</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/mycall.css' %}" />
+<style type="text/css">
+  td, th{
+  max-width: 25ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+</style>
 {% endblock %}
 
 {% block conteudo %}

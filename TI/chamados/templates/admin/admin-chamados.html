@@ -5,10 +5,19 @@
 {% block title %}
 <title>Teste- filtro</title>
 <link rel="stylesheet" href="{% static 'css/adminchamados.css' %}">
+<style type="text/css">
+	td, th{
+  max-width: 25ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+</style>
 {% endblock%}
 
 {% block conteudo %}
-<form method="get">
+<form method="post">
+	{% csrf_token %}
 	<div><span>Id:</span> {{filtro.form.id}}</div>
 	<div><span>Setor:</span> {{filtro.form.setor}}</div>
 	<div><span>Usuário:</span> {{filtro.form.user}}</div>

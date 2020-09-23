@@ -81,7 +81,7 @@ def apagar(request,id):
 @login_required
 def adminchamados(request):
 	chamado = Chamado.objects.all().order_by('-id')
-	meufiltro = FiltroChamado(request.GET, queryset=chamado)
+	meufiltro = FiltroChamado(request.POST, queryset=chamado)
 	contexto = {
 	'filtro': meufiltro
 	}
@@ -121,11 +121,13 @@ def editaruser(request, id):
 	}
 	return render(request, 'registration/register.html', contexto)
 
+@login_required
 def apagaruser(request, id):
 	user = CustomUser.objects.get(pk=id)
 	user.delete()
 	return redirect('usuarios')
 
+@login_required
 def comentario(request, id):
 	chamado = Chamado.objects.get(pk=id)
 	form = ComentarioForm(request.POST or None, instance=chamado)
