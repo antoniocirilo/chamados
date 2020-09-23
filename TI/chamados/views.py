@@ -85,7 +85,7 @@ def adminchamados(request):
 	contexto = {
 	'filtro': meufiltro
 	}
-	return render(request, 'admin/teste-filtro.html', contexto)
+	return render(request, 'admin/admin-chamados.html', contexto)
 
 @login_required
 def resolverchamado(request, id):
