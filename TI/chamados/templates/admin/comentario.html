@@ -1,0 +1,17 @@
+{% extends "dashboard/baseperfil.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+<title>ADICONAR COMENTÁRIO</title>
+{% endblock%}
+
+{% block conteudo %}
+<form method="post" class="registerForm">
+	{% csrf_token %}
+	<div class="form-group">
+		{% render_field form.comentario class="form-control" placeholder="Comentario" %} 
+	</div>
+	<button type="submit" class="btn btn-outline-success">Salvar</button>
+</form>
+{% endblock%}

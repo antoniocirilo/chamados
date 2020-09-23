@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import CustomUserCreationForm, ChamadoForm
+from .forms import CustomUserCreationForm, ChamadoForm, ComentarioForm
 from .models import CustomUser, Chamado, Situacao
 from .filters import FiltroChamado
 
@@ -125,3 +125,14 @@ def apagaruser(request, id):
 	user = CustomUser.objects.get(pk=id)
 	user.delete()
 	return redirect('usuarios')
+
+def comentario(request, id):
+	chamado = Chamado.objects.get(pk=id)
+	form = ComentarioForm(request.POST or None, instance=chamado)
+	if form.is_valid():
+		form.save()
+		return redirect('adminchamados')
+	contexto = {
+		'form': form
+	}
+	return render(request, 'admin/comentario.html', contexto)

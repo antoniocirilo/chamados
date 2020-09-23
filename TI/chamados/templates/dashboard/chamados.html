@@ -13,7 +13,7 @@
      <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th class="titleTable" colspan="6" scope="col">Meus chamados</th>
+          <th class="titleTable" colspan="7" scope="col">Meus chamados</th>
         </tr>
       </thead>
       <thead class="thead-dark">
@@ -23,6 +23,7 @@
           <th scope="col">Problema Relacionado</th>
           <th scope="col">Problema</th>
           <th scope="col">Situação</th>
+          <th scope="col">Comentário</th>
           <th scope="col">Administração</th>
         </tr>
       </thead>
@@ -34,6 +35,7 @@
           <td >{{chamado.relacao}}</td>
           <td ><a href="#">{{chamado.problema}}</a></td>
           <td > {% if chamado.situacao.id == 1 %} <span class="open"> Não resolvido </span> {% elif chamado.situacao.id == 2 %}<span class="progressCall">Em andamento </span> {% else %} <span class="completed">Resolvido </span>{% endif %}</td>
+          <td>{{chamado.comentario}}</td>
           <td> {% if chamado.situacao.id == 1 %} <a href="{% url 'editar' chamado.id %}"> <button type="button" class="btn btn-outline-primary">Editar</button> </a> <a href="{% url 'apagar' chamado.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a> {% else %} <a href="{% url 'editar' chamado.id %}"> <button type="button" class="btn btn-outline-primary" disabled="">Editar</button></a> <a href="{% url 'apagar' chamado.id %}"><button type="button" class="btn btn-outline-danger" disabled="">Apagar</button> </a>{% endif %}</td>
         </tr>
         {% empty %}

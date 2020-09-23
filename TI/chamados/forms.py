@@ -16,4 +16,4 @@ class ChamadoForm(ModelForm):
 class ComentarioForm(ModelForm):
 	class Meta:
 		model = Chamado
-		fields = ('setor', 'comentario')
+		fields = ['comentario']

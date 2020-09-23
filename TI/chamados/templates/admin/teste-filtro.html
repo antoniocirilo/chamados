@@ -10,6 +10,7 @@
 {% block conteudo %}
 <form method="get">
 	<div><span>Id:</span> {{filtro.form.id}}</div>
+	<div><span>Setor:</span> {{filtro.form.setor}}</div>
 	<div><span>Usuário:</span> {{filtro.form.user}}</div>
 	<div><span>Relação:</span> {{filtro.form.relacao}}</div>
 	<div><span>Situacao:</span> {{filtro.form.situacao}}</div>
@@ -22,10 +23,11 @@
 	<table class="table" border="1">
 		<thead class="thead-dark">
 			<tr>
-				<th class="title-table" colspan="6">Chamados</th>
+				<th class="title-table" colspan="7">Chamados</th>
 			</tr>
 			<tr>
 				<th>ID</th>
+				<th>Setor</th>
 				<th>Relação</th>
 				<th>Problema</th>
 				<th>Usuário</th>
@@ -37,11 +39,12 @@
 		<tbody>
 			<tr>
 				<td>{{chamado.id}}</td>
+				<td>{{chamado.setor}}</td>
 				<td>{{chamado.relacao}}</td>
 				<td>{{chamado.problema}}</td>
 				<td>{{chamado.user}}</td>
 				<td>{{chamado.situacao}}</td>
-				<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a> {% endif %}</td>
+				<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'comentario' chamado.id %}" class="btn btn-warning">+</a>  <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a> {% else %} Comentário : {{chamado.comentario}}{% endif %}</td>
 			</tr>
 		</tbody>
 		{% empty %}
@@ -49,4 +52,4 @@
 		{% endfor %}
 	</table>
 </div>
-{% endblock%}
+{% endblock %}
