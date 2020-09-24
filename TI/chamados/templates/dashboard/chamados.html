@@ -37,7 +37,7 @@
       </thead>
       <tbody>
         <tr>
-          {% for chamado in lista_chamado %}
+          {% for chamado in contacts %}
           <th scope="row">{{chamado.id}}</th>
           <th scope="row">{{chamado.setor}}</th>
           <td >{{chamado.relacao}}</td>
@@ -49,10 +49,33 @@
         {% empty %}
       </tbody>
     </table>
-
     <p>Nenhum chamado cadastrado</p>
   </div>
 </div>
-</div>
 {% endfor %}
+</div>
+{% endblock %}
+
+{% block pagination %}
+
+<div class="row">
+  <div class="col-12">
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if contacts.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page=1">Mais novos</a></li>
+    <li class="page-item"><a class="page-link" href="?page={{ contacts.previous_page_number }}">Anterior</a></li>
+    {% endif %}
+
+    {% if contacts.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{ contacts.next_page_number }}">Próximo</a></li>
+    <li class="page-item"><a class="page-link" href="?page={{ contacts.paginator.num_pages }}">Mais antigos</a></li>
+    {% endif %}
+  </ul>
+</nav>
+ <span class="current">
+            Pagina {{ contacts.number }} de {{ contacts.paginator.num_pages }}.
+  </span>
+  </div>
+</div>
 {% endblock %}

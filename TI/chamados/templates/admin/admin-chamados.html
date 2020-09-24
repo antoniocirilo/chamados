@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{% static 'css/adminchamados.css' %}">
 <style type="text/css">
 	td, th{
-  max-width: 25ch;
+  max-width: 27ch;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -16,8 +16,7 @@
 {% endblock%}
 
 {% block conteudo %}
-<form method="post">
-	{% csrf_token %}
+<form method="get">
 	<div><span>Id:</span> {{filtro.form.id}}</div>
 	<div><span>Setor:</span> {{filtro.form.setor}}</div>
 	<div><span>Usuário:</span> {{filtro.form.user}}</div>

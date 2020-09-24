@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, ChamadoForm, ComentarioForm
 from .models import CustomUser, Chamado, Situacao
 from .filters import FiltroChamado
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def login(request):
@@ -15,8 +16,12 @@ def inicial(request):
 @login_required
 def perfil(request):
 	chamados = Chamado.objects.filter(user=request.user).order_by('-id')
+	paginator = Paginator(chamados, 10)
+	page = request.GET.get('page')
+	contacts = paginator.get_page(page)
 	contexto = {
-	'lista_chamado': chamados
+	'lista_chamado': chamados,
+	'contacts': contacts
 	}
 	return render(request, 'dashboard/chamados.html', contexto)
 
@@ -81,7 +86,7 @@ def apagar(request,id):
 @login_required
 def adminchamados(request):
 	chamado = Chamado.objects.all().order_by('-id')
-	meufiltro = FiltroChamado(request.POST, queryset=chamado)
+	meufiltro = FiltroChamado(request.GET, queryset=chamado)
 	contexto = {
 	'filtro': meufiltro
 	}
