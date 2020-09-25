@@ -16,7 +16,7 @@ def inicial(request):
 @login_required
 def perfil(request):
 	chamados = Chamado.objects.filter(user=request.user).order_by('-id')
-	paginator = Paginator(chamados, 10)
+	paginator = Paginator(chamados, 5)
 	page = request.GET.get('page')
 	contacts = paginator.get_page(page)
 	contexto = {
@@ -87,6 +87,7 @@ def apagar(request,id):
 def adminchamados(request):
 	chamado = Chamado.objects.all().order_by('-id')
 	meufiltro = FiltroChamado(request.GET, queryset=chamado)
+	
 	contexto = {
 	'filtro': meufiltro
 	}
