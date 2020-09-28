@@ -54,7 +54,7 @@
 				<td>{{chamado.problema}}</td>
 				<td>{{chamado.user}}</td>
 				<td>{{chamado.situacao}}</td>
-				<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'comentario' chamado.id %}" class="btn btn-warning">+</a>  <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a> {% else %} Comentário : {{chamado.comentario}}{% endif %}</td>
+				<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'comentario' chamado.id %}" class="btn btn-warning">+</a>  <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a> {% else %} <button class="btn btn-success" disabled="">Resolvido </button>{% endif %}</td>
 			</tr>
 		</tbody>
 		<!-- Modal -->
@@ -74,6 +74,7 @@
               <p><b>Situação:</b> Não resolvido </p>
               {% elif chamado.situacao.id == 2 %}
               <p><b>Situação:</b>  Em andamento</p>
+              <p><b>Comentário:</b> {{chamado.comentario}}</p>
               {% else %}
               <p><b>Situação:</b>  Resolvido</p>
               <p><b>Comentário:</b> {{chamado.comentario}}</p>
