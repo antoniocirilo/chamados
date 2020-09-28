@@ -79,6 +79,8 @@
               <p><b>Situação:</b>  Resolvido</p>
               <p><b>Comentário:</b> {{chamado.comentario}}</p>
               {% endif %}
+              <span class="float-right">chamado aberto por {{chamado.user.apelido}}</span> <br>
+              <span class="float-right">chamado fechado por TI</span>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
