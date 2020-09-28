@@ -6,11 +6,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/mycall.css' %}" />
 <style type="text/css">
   td, th{
-  max-width: 25ch;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+    max-width: 25ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 </style>
 {% endblock %}
 
@@ -31,26 +31,55 @@
           <th scope="col">Problema Relacionado</th>
           <th scope="col">Problema</th>
           <th scope="col">Situação</th>
-          <th scope="col">Comentário</th>
           <th scope="col">Administração</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           {% for chamado in contacts %}
-          <th scope="row">{{chamado.id}}</th>
-          <th scope="row">{{chamado.setor}}</th>
-          <td >{{chamado.relacao}}</td>
-          <td ><a href="#">{{chamado.problema}}</a></td>
-          <td > {% if chamado.situacao.id == 1 %} <span class="open"> Não resolvido </span> {% elif chamado.situacao.id == 2 %}<span class="progressCall">Em andamento </span> {% else %} <span class="completed">Resolvido </span>{% endif %}</td>
-          <td>{{chamado.comentario}}</td>
-          <td> {% if chamado.situacao.id == 1 %} <a href="{% url 'editar' chamado.id %}"> <button type="button" class="btn btn-outline-primary">Editar</button> </a> <a href="{% url 'apagar' chamado.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a> {% else %} <a href="{% url 'editar' chamado.id %}"> <button type="button" class="btn btn-outline-primary" disabled="">Editar</button></a> <a href="{% url 'apagar' chamado.id %}"><button type="button" class="btn btn-outline-danger" disabled="">Apagar</button> </a>{% endif %}</td>
-        </tr>
-        {% empty %}
-      </tbody>
-    </table>
-    <p>Nenhum chamado cadastrado</p>
-  </div>
+          <th scope="row"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#chamado-{{chamado.id}}">
+            {{chamado.id}}
+          </button>
+        </th>
+        <th scope="row">{{chamado.setor}}</th>
+        <td >{{chamado.relacao}}</td>
+        <td >{{chamado.problema}}</td>
+        <td > {% if chamado.situacao.id == 1 %} <span class="open"> Não resolvido </span> {% elif chamado.situacao.id == 2 %}<span class="progressCall">Em andamento </span> {% else %} <span class="completed">Resolvido </span>{% endif %}</td>
+        <td> {% if chamado.situacao.id == 1 %} <a href="{% url 'editar' chamado.id %}"> <button type="button" class="btn btn-outline-primary">Editar</button> </a> <a href="{% url 'apagar' chamado.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a> {% else %} <a href="{% url 'editar' chamado.id %}"> <button type="button" class="btn btn-outline-primary" disabled="">Editar</button></a> <a href="{% url 'apagar' chamado.id %}"><button type="button" class="btn btn-outline-danger" disabled="">Apagar</button> </a>{% endif %}</td>
+      </tr>
+      <!-- Modal -->
+      <div class="modal fade" id="chamado-{{chamado.id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel"> Chamado #{{chamado.id}} - {{chamado.setor}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p> <b>Relação:</b> {{chamado.relacao}}</p>
+              <p> <b>Problema:</b> {{chamado.problema}}</p>
+              {% if chamado.situacao.id == 1 %}
+              <p><b>Situação:</b> Não resolvido </p>
+              {% elif chamado.situacao.id == 2 %}
+              <p><b>Situação:</b>  Em andamento</p>
+              {% else %}
+              <p><b>Situação:</b>  Resolvido</p>
+              <p><b>Comentário:</b> {{chamado.comentario}}</p>
+              {% endif %}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+    </tbody>
+  </table>
+  <p>Nenhum chamado cadastrado</p>
+</div>
 </div>
 {% endfor %}
 </div>
@@ -61,21 +90,21 @@
 <div class="row">
   <div class="col-12">
     <nav aria-label="Page navigation example">
-  <ul class="pagination">
-    {% if contacts.has_previous %}
-    <li class="page-item"><a class="page-link" href="?page=1">Mais novos</a></li>
-    <li class="page-item"><a class="page-link" href="?page={{ contacts.previous_page_number }}">Anterior</a></li>
-    {% endif %}
+      <ul class="pagination">
+        {% if contacts.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page=1">Mais novos</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ contacts.previous_page_number }}">Anterior</a></li>
+        {% endif %}
 
-    {% if contacts.has_next %}
-    <li class="page-item"><a class="page-link" href="?page={{ contacts.next_page_number }}">Próximo</a></li>
-    <li class="page-item"><a class="page-link" href="?page={{ contacts.paginator.num_pages }}">Mais antigos</a></li>
-    {% endif %}
-  </ul>
-</nav>
- <span class="current">
-            Pagina {{ contacts.number }} de {{ contacts.paginator.num_pages }}.
-  </span>
+        {% if contacts.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ contacts.next_page_number }}">Próximo</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ contacts.paginator.num_pages }}">Mais antigos</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    <span class="current">
+      Pagina {{ contacts.number }} de {{ contacts.paginator.num_pages }}.
+    </span>
   </div>
 </div>
 {% endblock %}
