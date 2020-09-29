@@ -73,13 +73,17 @@
                         <p><b>Situação:</b> Não resolvido </p>
                         {% elif chamado.situacao.id == 2 %}
                         <p><b>Situação:</b> Em andamento</p>
+                        <p><b>Comentário:</b> {{chamado.comentario}}</p>
                         {% else %}
                         <p><b>Situação:</b> Resolvido</p>
                         <p><b>Comentário:</b> {{chamado.comentario}}</p>
                         {% endif %}
-                        <span class="float-right">chamado aberto por você ({{chamado.user.apelido}}) em {{chamado.datahora_aberto}}</span> <br>
+                        <span class="card-subtitle mb-2 text-muted">Chamado aberto por você ({{chamado.user.apelido }} - {{chamado.user.matricula}}) em {{chamado.datahora_aberto}}</span> <br>
+                        {% if chamado.situacao.id >= 2 %}
+                         <span class="card-subtitle mb-2 text-muted">Chamado Em andamento por TI em {{chamado.datahora_andamento}}</span> <br>
+                         {% endif %}
                         {% if chamado.situacao.id == 3 %}
-                        <span class="float-right">chamado fechado por TI em {{chamado.datahora_fechado}}</span>
+                        <span class="card-subtitle mb-2 text-muted">Chamado fechado por TI em {{chamado.datahora_fechado}}</span>
                         {% endif %}
                       </div>
                       <div class="modal-footer">

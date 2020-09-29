@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-<title> Teste- filtro</title>
+<title>Resolver chamados</title>
 <link rel="stylesheet" href="{% static 'css/adminchamados.css' %}">
 <style type="text/css">
 	td, th{
@@ -79,8 +79,9 @@
 						<p><b>Situação:</b>  Resolvido</p>
 						<p><b>Comentário:</b> {{chamado.comentario}}</p>
 						{% endif %}
-						<span class="float-right">chamado aberto por {{chamado.user.apelido}}</span> <br>
-						<span class="float-right">chamado fechado por TI</span>
+						<span class="card-subtitle mb-2 text-muted">chamado aberto por {{chamado.user.apelido}} ({{chamado.user.matricula}}) em {{chamado.datahora_aberto}} </span> <br>
+						 <span class="card-subtitle mb-2 text-muted">Chamado Em andamento por TI em {{chamado.datahora_andamento}}</span> <br>
+						<span class="card-subtitle mb-2 text-muted">chamado fechado por TI em {{chamado.datahora_fechado}}</span>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

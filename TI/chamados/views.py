@@ -97,8 +97,10 @@ def adminchamados(request):
 
 @login_required
 def resolverchamado(request, id):
+	data_hora_andamento = datetime.now()
 	chamado = Chamado.objects.get(pk=id)
 	chamado.situacao_id = 2
+	chamado.datahora_andamento = data_hora_andamento
 	chamado.save()
 	return redirect('adminchamados')
 
