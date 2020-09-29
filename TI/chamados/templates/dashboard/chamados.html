@@ -22,7 +22,7 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th class="titleTable" colspan="7" scope="col">Meus chamados</th>
+            <th class="titleTable" colspan="6" scope="col">Meus chamados</th>
           </tr>
         </thead>
         <thead class="thead-dark">
@@ -36,8 +36,8 @@
           </tr>
         </thead>
         <tbody>
+          {% for chamado in contacts %}
           <tr>
-            {% for chamado in contacts %}
             <th scope="row"><button type="button" class="btn btn-link" data-toggle="modal"
                 data-target="#chamado-{{chamado.id}}">
                 {{chamado.id}}
@@ -88,8 +88,8 @@
                 </div>
               </div>
             </div>
-            {% endfor %}
           </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
