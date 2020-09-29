@@ -5,6 +5,7 @@ from .forms import CustomUserCreationForm, ChamadoForm, ComentarioForm
 from .models import CustomUser, Chamado, Situacao
 from .filters import FiltroChamado
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from datetime import datetime
 
 # Create your views here.
 def login(request):
@@ -52,10 +53,12 @@ def dados(request,id):
 
 @login_required
 def cadastro(request):
+	data_hora_aberto = datetime.now()
 	form = ChamadoForm(request.POST or None)
 	if form.is_valid():
 		chamado = form.save(commit=False)
 		chamado.user = request.user
+		chamado.datahora_aberto = data_hora_aberto
 		chamado.save()
 		return redirect('perfil')
 	contexto = {
@@ -101,8 +104,10 @@ def resolverchamado(request, id):
 
 @login_required
 def resolvidochamado(request, id):
+	data_hora_fechado = datetime.now()
 	chamado = Chamado.objects.get(pk=id)
 	chamado.situacao_id = 3
+	chamado.datahora_fechado = data_hora_fechado
 	chamado.save()
 	return redirect('adminchamados')
 

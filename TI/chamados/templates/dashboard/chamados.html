@@ -77,9 +77,9 @@
                         <p><b>Situação:</b> Resolvido</p>
                         <p><b>Comentário:</b> {{chamado.comentario}}</p>
                         {% endif %}
-                        <span class="float-right">chamado aberto por você ({{chamado.user.apelido}})</span> <br>
+                        <span class="float-right">chamado aberto por você ({{chamado.user.apelido}}) em {{chamado.datahora_aberto}}</span> <br>
                         {% if chamado.situacao.id == 3 %}
-                        <span class="float-right">chamado fechado por TI</span>
+                        <span class="float-right">chamado fechado por TI em {{chamado.datahora_fechado}}</span>
                         {% endif %}
                       </div>
                       <div class="modal-footer">

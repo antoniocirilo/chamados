@@ -30,3 +30,5 @@ class Chamado(models.Model):
 	relacao = models.ForeignKey(ProblemaRelacionado, on_delete=models.CASCADE)
 	situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE, default=1)
 	comentario = models.TextField('comentario', null=True)
+	datahora_aberto = models.DateTimeField('datahora_aberto', null=True)
+	datahora_fechado = models.DateTimeField('datahora_fechado', null=True)
