@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="{% static 'css/adminchamados.css' %}">
 <style type="text/css">
 	td, th{
-  max-width: 27ch;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+		max-width: 27ch;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 </style>
 {% endblock%}
 
@@ -47,8 +47,8 @@
 		<tbody>
 			<tr>
 				<td><button type="button" class="btn btn-link" data-toggle="modal" data-target="#chamado-{{chamado.id}}">
-            {{chamado.id}}
-          </button></td>
+					{{chamado.id}}
+				</button></td>
 				<td>{{chamado.setor}}</td>
 				<td>{{chamado.relacao}}</td>
 				<td>{{chamado.problema}}</td>
@@ -58,36 +58,36 @@
 			</tr>
 		</tbody>
 		<!-- Modal -->
-      <div class="modal fade" id="chamado-{{chamado.id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel"> Chamado #{{chamado.id}} - {{chamado.setor}}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p> <b>Relação:</b> {{chamado.relacao}}</p>
-              <p> <b>Problema:</b> {{chamado.problema}}</p>
-              {% if chamado.situacao.id == 1 %}
-              <p><b>Situação:</b> Não resolvido </p>
-              {% elif chamado.situacao.id == 2 %}
-              <p><b>Situação:</b>  Em andamento</p>
-              <p><b>Comentário:</b> {{chamado.comentario}}</p>
-              {% else %}
-              <p><b>Situação:</b>  Resolvido</p>
-              <p><b>Comentário:</b> {{chamado.comentario}}</p>
-              {% endif %}
-              <span class="float-right">chamado aberto por {{chamado.user.apelido}}</span> <br>
-              <span class="float-right">chamado fechado por TI</span>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-          </div>
-        </div>
-      </div>
+		<div class="modal fade" id="chamado-{{chamado.id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel"> Chamado #{{chamado.id}} - {{chamado.setor}}</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p> <b>Relação:</b> {{chamado.relacao}}</p>
+						<p> <b>Problema:</b> {{chamado.problema}}</p>
+						{% if chamado.situacao.id == 1 %}
+						<p><b>Situação:</b> Não resolvido </p>
+						{% elif chamado.situacao.id == 2 %}
+						<p><b>Situação:</b>  Em andamento</p>
+						<p><b>Comentário:</b> {{chamado.comentario}}</p>
+						{% else %}
+						<p><b>Situação:</b>  Resolvido</p>
+						<p><b>Comentário:</b> {{chamado.comentario}}</p>
+						{% endif %}
+						<span class="float-right">chamado aberto por {{chamado.user.apelido}}</span> <br>
+						<span class="float-right">chamado fechado por TI</span>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		{% empty %}
 		<tr>Nada cadastrado</tr>
 		{% endfor %}
