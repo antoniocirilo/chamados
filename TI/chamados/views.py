@@ -164,3 +164,4 @@ def comentario(request, id):
 		'form': form
 	}
 	return render(request, 'admin/comentario.html', contexto)
+
