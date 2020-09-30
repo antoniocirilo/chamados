@@ -140,6 +140,20 @@ def apagaruser(request, id):
 	return redirect('usuarios')
 
 @login_required
+def superuser(request, id):
+	user = CustomUser.objects.get(pk=id)
+	user.is_superuser = 1
+	user.save()
+	return redirect('usuarios')
+
+@login_required
+def normaluser(request, id):
+	user = CustomUser.objects.get(pk=id)
+	user.is_superuser = 0
+	user.save()
+	return redirect('usuarios')
+
+@login_required
 def comentario(request, id):
 	chamado = Chamado.objects.get(pk=id)
 	form = ComentarioForm(request.POST or None, instance=chamado)
