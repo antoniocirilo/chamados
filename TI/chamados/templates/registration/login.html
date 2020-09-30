@@ -10,7 +10,11 @@
 {% endblock %}
 
 {% block conteudo %}
-
+{% if form.errors %}
+    <div class="alert alert-danger">
+        <strong>{{ form.non_field_errors }}</strong>
+    </div>
+{% endif %}
 <div id="login">
 	<div class="container">
 		<div class="row justify-content-center">
