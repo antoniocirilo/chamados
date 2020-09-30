@@ -54,7 +54,7 @@
 				<td>{{chamado.problema}}</td>
 				<td>{{chamado.user}}</td>
 				<td>{{chamado.situacao}}</td>
-				<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Resolver</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'comentario' chamado.id %}" class="btn btn-warning">+</a>  <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolvido</a> {% else %} <button class="btn btn-success" disabled="">Resolvido </button>{% endif %}</td>
+				<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Abrir</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'comentario' chamado.id %}" class="btn btn-warning">+</a>  <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolver </a> {% else %} <button class="btn btn-success" disabled="">Resolvido </button>{% endif %}</td>
 			</tr>
 		</tbody>
 		<!-- Modal -->
