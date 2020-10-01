@@ -162,12 +162,11 @@ ACCOUNT_LOGIN_ATTEMPS_TIMEOUT = 60 * 20
 ACCOUNT_FORMS ={
     'signup': 'core.forms.CustomUserCreationForm'
 }
-
 #SMTP configuração
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'antoniocirilo526@gmail.com'
-EMAIL_HOST_PASSWORD = 'ifrn.123'
+EMAIL_HOST_USER = 'admin123@gmail.com'
+EMAIL_HOST_PASSWORD = ''
 '''
