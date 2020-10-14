@@ -57,10 +57,10 @@
 				<td>{{chamado.situacao}}</td>
 				<td>
 					{% if chamado.situacao.id == 1 %} 
-					<a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Abrir</a> 
+					<a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-danger">Abrir</a> 
 					{% elif chamado.situacao.id == 2 %} 
-					<a href="{% url 'comentario' chamado.id %}" class="btn btn-warning">+</a> 
-					<a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolver </a> 
+					<a href="{% url 'comentario' chamado.id %}" class="btn btn-primary">+</a> 
+					<a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-warning">Resolver </a> 
 					{% else %}
 					<button class="btn btn-success" disabled="">Resolvido </button>{% endif %}</td>
 			</tr>
