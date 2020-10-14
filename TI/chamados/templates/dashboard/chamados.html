@@ -50,11 +50,11 @@
             {% elif chamado.situacao.id == 2 %}<span class="progressCall">Em andamento </span> {% else %} <span
             class="completed">Resolvido </span>{% endif %}</td>
             <td> {% if chamado.situacao.id == 1 %} <a href="{% url 'editar' chamado.id %}"> <button type="button"
-              class="btn btn-outline-primary">Editar</button> </a> <a href="{% url 'apagar' chamado.id %}"><button
-                type="button" class="btn btn-outline-danger">Apagar</button></a> {% else %} <a
+              class="btn btn-outline-primary"><i class="fas fa-edit"></i></button> </a> <a href="{% url 'apagar' chamado.id %}"><button
+                type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button></a> {% else %} <a
                 href="{% url 'editar' chamado.id %}"> <button type="button" class="btn btn-outline-primary"
-                disabled="">Editar</button></a> <a href="{% url 'apagar' chamado.id %}"><button type="button"
-                  class="btn btn-outline-danger" disabled="">Apagar</button> </a>{% endif %}</td>
+                disabled=""><i class="fas fa-edit"></i></button></a> <a href="{% url 'apagar' chamado.id %}"><button type="button"
+                  class="btn btn-outline-danger" disabled=""><i class="fas fa-trash-alt"></i></button> </a>{% endif %}</td>
                   <!-- Modal -->
                   <div class="modal fade" id="chamado-{{chamado.id}}" data-backdrop="static" data-keyboard="false"
                   tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

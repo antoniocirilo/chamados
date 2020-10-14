@@ -36,7 +36,7 @@
           <td >{{usuario.apelido}}</td>
           <td ><a href="#">{{usuario.matricula}}</a></td>
           <td scope="row">{{usuario.email}}</td>
-          <td> <a href="{% url 'editaruser' usuario.id %}"> <button type="button" class="btn btn-outline-primary">Editar</button></a> {% if usuario.is_superuser == 0 %} <a href="{% url 'apagaruser' usuario.id %}"><button type="button" class="btn btn-outline-danger">Apagar</button></a> <a href="{% url 'superuser' usuario.id %}"> <button type="button" class="btn btn-outline-warning">+</button></a> {% else %} <a href="{% url 'apagaruser' usuario.id %}"> <button type="button" class="btn btn-outline-danger"disabled="">Apagar</button></a> <a href="{% url 'normaluser' usuario.id %}"> <button type="button" class="btn btn-outline-dark">-</button></a>{% endif %}
+          <td> <a href="{% url 'editaruser' usuario.id %}"> <button type="button" class="btn btn-outline-primary"><i class="fas fa-edit"></i></button></a> {% if usuario.is_superuser == 0 %} <a href="{% url 'apagaruser' usuario.id %}"><button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button></a> <a href="{% url 'superuser' usuario.id %}"> <button type="button" class="btn btn-outline-warning">+</button></a> {% else %} <a href="{% url 'apagaruser' usuario.id %}"> <button type="button" class="btn btn-outline-danger"disabled=""><i class="fas fa-trash-alt"></i></button></a> <a href="{% url 'normaluser' usuario.id %}"> <button type="button" class="btn btn-outline-dark">-</button></a>{% endif %}
           </td>
         </tr>
         {% empty %}
