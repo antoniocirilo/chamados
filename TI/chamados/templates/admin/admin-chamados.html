@@ -41,6 +41,7 @@
 				<th>Usuário</th>
 				<th>Situação</th>
 				<th>Ação</th>
+				
 			</tr>
 		</thead>
 		{% for chamado in filtro.qs %}
@@ -52,9 +53,16 @@
 				<td>{{chamado.setor}}</td>
 				<td>{{chamado.relacao}}</td>
 				<td>{{chamado.problema}}</td>
-				<td>{{chamado.user}}</td>
+				<td>{{chamado.user}} ({{chamado.user.matricula}})</td>
 				<td>{{chamado.situacao}}</td>
-				<td>{% if chamado.situacao.id == 1 %} <a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Abrir</a> {% elif chamado.situacao.id == 2 %} <a href="{% url 'comentario' chamado.id %}" class="btn btn-warning">+</a>  <a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolver </a> {% else %} <button class="btn btn-success" disabled="">Resolvido </button>{% endif %}</td>
+				<td>
+					{% if chamado.situacao.id == 1 %} 
+					<a href="{% url 'resolverchamado' chamado.id %}" class="btn btn-primary">Abrir</a> 
+					{% elif chamado.situacao.id == 2 %} 
+					<a href="{% url 'comentario' chamado.id %}" class="btn btn-warning">+</a> 
+					<a href="{% url 'resolvidochamado' chamado.id %}" class="btn btn-success">Resolver </a> 
+					{% else %}
+					<button class="btn btn-success" disabled="">Resolvido </button>{% endif %}</td>
 			</tr>
 		</tbody>
 		<!-- Modal -->
