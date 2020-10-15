@@ -42,7 +42,7 @@ $ source venv/bin/activate
 
 Ativando a venv no Windows:
 ```sh
-$ venv\Scripts\activate.bat
+$ venv\Scripts\activate
 ```
 
 ```sh
