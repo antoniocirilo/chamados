@@ -29,25 +29,25 @@ Primeiro, você precisa ter o <kbd>[Python](https://www.python.org/downloads/)</
 
 Se você estiver utilizando o **Linux**, você pode optar por instalar o **Python** através do site oficial da linguagem <kbd>[Python](https://www.python.org/downloads/)</kbd>.
 
-Após ter o **Python** instalado, crie um ambiente virtual(venv) e o ative, utilizando os comandos:
-
-Criando o ambiente virtual(Windows/Linux):
+Após ter o **Python** instalado, instale um ambiente virtual(virtualenv) no site <kbd>[Virtualenv](https://pypi.org/project/virtualenv/#files)</kbd>.
+Logo após, crie o ambiente virtual e de um nome a ele (Windows/Linux):
 ```sh
-$ python3 -m venv venv
+$ virtualenv ambiente
 ```
+Depois, ative, utilizando os comandos:
 Ativando a venv no linux:
 ```sh
-$ source venv/bin/activate
+$ source ambiente/bin/activate
 ```
-
 Ativando a venv no Windows:
 ```sh
-$ venv\Scripts\activate
+$ ambiente\Scripts\activate
 ```
 
 ```sh
 
-Instale as dependências contidas nos arquivos `requirements.txt` que se encontram na raíz do repositório (para o gerenciamento de commits). Para instalar as dependências, basta abrir o terminal no diretório e digitar o comando:
+Instale as dependências contidas nos arquivos `requirements.txt` que se encontram na raíz do repositório (para o gerenciamento de commits).
+Para instalar as dependências, basta abrir o terminal no diretório e digitar o comando:
 ```
 
 ```sh
