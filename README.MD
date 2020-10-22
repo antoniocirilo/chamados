@@ -34,7 +34,7 @@ Logo após, crie o ambiente virtual e de um nome a ele (Windows/Linux):
 ```sh
 $ virtualenv ambiente
 ```
-Depois, ative, utilizando os comandos:
+Depois, ative, utilizando os comandos: <br />
 Ativando a venv no linux:
 ```sh
 $ source ambiente/bin/activate
@@ -44,11 +44,9 @@ Ativando a venv no Windows:
 $ ambiente\Scripts\activate
 ```
 
-```sh
-
-Instale as dependências contidas nos arquivos `requirements.txt` que se encontram na raíz do repositório (para o gerenciamento de commits).
+Logo pois, entre no diretório do projeto e instale as dependências contidas nos arquivos `requirements.txt` que se encontram na raíz do repositório
+(para o gerenciamento de commits).
 Para instalar as dependências, basta abrir o terminal no diretório e digitar o comando:
-```
 
 ```sh
 $ pip install -r requirements.txt
@@ -57,6 +55,14 @@ $ pip install -r requirements.txt
 
 Veja os arquivos **`requirements.txt`** do <kbd>[commitlint](./requirements.txt)</kbd>
 
+Depois, entre no diretório da aplicação chamada **TI** e digita o seguinte comando:
+```sh
+$ python manage.py runserver
+```
+Logo depois, entre no seu navegador coloque na url:
+```sh 
+http://localhost:8000/
+```
 
 ## **:books: REFERÊNCIAS**
 
